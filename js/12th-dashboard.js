@@ -1,4 +1,4 @@
-// CareerCompass - 12th Student Dashboard Module
+// GoalGuru - 12th Student Dashboard Module
 
 // Dashboard state
 let selectedStream = '';
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeDashboard() {
     // Load saved stream selection
-    const savedStream = CareerCompass.getFromStorage('selected-stream-12th');
+    const savedStream = GoalGuru.getFromStorage('selected-stream-12th');
     if (savedStream) {
         selectedStream = savedStream;
         document.getElementById('streamSelect').value = savedStream;
@@ -22,7 +22,7 @@ function initializeDashboard() {
     }
 
     // Track dashboard visit
-    CareerCompass.trackEvent('dashboard', 'visited', '12th-student');
+    GoalGuru.trackEvent('dashboard', 'visited', '12th-student');
 }
 
 // Update dashboard based on selected stream
@@ -30,12 +30,12 @@ function updateDashboard() {
     selectedStream = document.getElementById('streamSelect').value;
 
     if (selectedStream) {
-        CareerCompass.saveToStorage('selected-stream-12th', selectedStream);
+        GoalGuru.saveToStorage('selected-stream-12th', selectedStream);
         updateExamList();
         updateQuickActions();
 
         // Track stream selection
-        CareerCompass.trackEvent('stream', 'selected', selectedStream);
+        GoalGuru.trackEvent('stream', 'selected', selectedStream);
     }
 }
 
@@ -221,7 +221,7 @@ function updateExamList() {
         examItem.innerHTML = `
             <div class="exam-info">
                 <h4>${exam.name}</h4>
-                <p class="exam-date">Registration: ${CareerCompass.formatDate(exam.registrationStart)}</p>
+                <p class="exam-date">Registration: ${GoalGuru.formatDate(exam.registrationStart)}</p>
                 <p class="exam-status ${statusClass}">${statusText}</p>
             </div>
             <button class="btn btn-sm btn-outline" onclick="viewExamDetails('${exam.name}')">View Details</button>
@@ -239,13 +239,13 @@ function viewExamDetails(examName) {
 
     if (!exam) return;
 
-    CareerCompass.trackEvent('exam', 'view-details', examName);
+    GoalGuru.trackEvent('exam', 'view-details', examName);
 
     const details = `
         ${exam.fullName}
 
-        Registration: ${CareerCompass.formatDate(exam.registrationStart)} - ${CareerCompass.formatDate(exam.registrationEnd)}
-        Exam Date: ${CareerCompass.formatDate(exam.examDate)}
+        Registration: ${GoalGuru.formatDate(exam.registrationStart)} - ${GoalGuru.formatDate(exam.registrationEnd)}
+        Exam Date: ${GoalGuru.formatDate(exam.examDate)}
         Eligibility: ${exam.eligibility}
 
         ${exam.description}
@@ -253,13 +253,13 @@ function viewExamDetails(examName) {
         Official Website: ${exam.websites[0]}
     `;
 
-    CareerCompass.showNotification(details, 'info');
+    GoalGuru.showNotification(details, 'info');
 }
 
 // View all exams
 function viewAllExams() {
-    CareerCompass.trackEvent('exam', 'view-all');
-    CareerCompass.showNotification('Opening comprehensive exam calendar...', 'info');
+    GoalGuru.trackEvent('exam', 'view-all');
+    GoalGuru.showNotification('Opening comprehensive exam calendar...', 'info');
 
     // In a real app, this would navigate to a detailed exams page
     console.log('Viewing all exams for stream:', selectedStream);
@@ -267,8 +267,8 @@ function viewAllExams() {
 
 // Open college finder
 function openCollegeFinder() {
-    CareerCompass.trackEvent('college', 'finder-opened');
-    CareerCompass.showNotification('Opening College Finder...', 'info');
+    GoalGuru.trackEvent('college', 'finder-opened');
+    GoalGuru.showNotification('Opening College Finder...', 'info');
 
     // Navigate to college finder page
     window.location.href = 'college-finder.html';
@@ -276,7 +276,7 @@ function openCollegeFinder() {
 
 // View career roadmap
 function viewRoadmap(category) {
-    CareerCompass.trackEvent('roadmap', 'viewed', category);
+    GoalGuru.trackEvent('roadmap', 'viewed', category);
 
     const roadmaps = {
         'engineering': 'Engineering: JEE → B.Tech → Job/M.Tech → Senior Engineer/Entrepreneur',
@@ -285,7 +285,7 @@ function viewRoadmap(category) {
         'arts': 'Arts: 12th → BA → MA/Professional Course → Career in chosen field'
     };
 
-    CareerCompass.showNotification(
+    GoalGuru.showNotification(
         `${category.toUpperCase()} ROADMAP: ${roadmaps[category]}`,
         'info'
     );
@@ -300,32 +300,32 @@ function updateQuickActions() {
 
 // Compare colleges
 function compareColleges() {
-    CareerCompass.trackEvent('college', 'compare');
-    CareerCompass.showNotification('College comparison tool coming soon!', 'info');
+    GoalGuru.trackEvent('college', 'compare');
+    GoalGuru.showNotification('College comparison tool coming soon!', 'info');
 }
 
 // Cutoff predictor
 function cutoffPredictor() {
-    CareerCompass.trackEvent('tool', 'cutoff-predictor');
-    CareerCompass.showNotification('Cutoff prediction tool coming soon!', 'info');
+    GoalGuru.trackEvent('tool', 'cutoff-predictor');
+    GoalGuru.showNotification('Cutoff prediction tool coming soon!', 'info');
 }
 
 // Admission alerts
 function admissionAlert() {
-    CareerCompass.trackEvent('alert', 'admission');
-    CareerCompass.showNotification('Admission alerts setup coming soon!', 'info');
+    GoalGuru.trackEvent('alert', 'admission');
+    GoalGuru.showNotification('Admission alerts setup coming soon!', 'info');
 }
 
 // Counseling info
 function counselingInfo() {
-    CareerCompass.trackEvent('info', 'counseling');
-    CareerCompass.showNotification('Counseling information coming soon!', 'info');
+    GoalGuru.trackEvent('info', 'counseling');
+    GoalGuru.showNotification('Counseling information coming soon!', 'info');
 }
 
 // Explore scholarships
 function exploreScholarships() {
-    CareerCompass.trackEvent('scholarship', 'explore');
-    CareerCompass.showNotification('Opening scholarship finder...', 'info');
+    GoalGuru.trackEvent('scholarship', 'explore');
+    GoalGuru.showNotification('Opening scholarship finder...', 'info');
 }
 
 console.log('12th Student Dashboard JavaScript loaded');

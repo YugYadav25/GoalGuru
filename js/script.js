@@ -1,4 +1,4 @@
-// CareerCompass - Main JavaScript
+// GoalGuru - Main JavaScript
 
 // Global Variables
 let currentUser = null;
@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize the application
 function initializeApp() {
-    console.log('CareerCompass initialized');
+    console.log('GoalGuru initialized');
 
     // Check for saved theme preference
-    const savedTheme = localStorage.getItem('careercompass-theme');
+    const savedTheme = localStorage.getItem('goalguru-theme');
     if (savedTheme) {
         document.body.classList.add(savedTheme);
     }
@@ -28,7 +28,7 @@ function initializeApp() {
 
 // Check user session
 function checkUserSession() {
-    const savedUser = localStorage.getItem('careercompass-user');
+    const savedUser = localStorage.getItem('goalguru-user');
     if (savedUser) {
         currentUser = JSON.parse(savedUser);
         console.log('User session found:', currentUser.name);
@@ -111,7 +111,7 @@ function handleLogin(event) {
     };
 
     // Save user data
-    localStorage.setItem('careercompass-user', JSON.stringify(userData));
+    localStorage.setItem('goalguru-user', JSON.stringify(userData));
     currentUser = userData;
 
     // Close modal
@@ -159,7 +159,7 @@ function handleSignup(event) {
     };
 
     // Save user data
-    localStorage.setItem('careercompass-user', JSON.stringify(userData));
+    localStorage.setItem('goalguru-user', JSON.stringify(userData));
     currentUser = userData;
 
     // Close modal
@@ -177,7 +177,7 @@ function handleSignup(event) {
 // Role selection function
 function selectRole(role) {
     currentRole = role;
-    localStorage.setItem('careercompass-role', role);
+    localStorage.setItem('goalguru-role', role);
 
     // Show loading state
     showNotification('Loading your personalized dashboard...', 'info');
@@ -203,9 +203,9 @@ function selectRole(role) {
 // Logout function
 function logout() {
     // Clear user data
-    localStorage.removeItem('careercompass-user');
-    localStorage.removeItem('careercompass-role');
-    localStorage.removeItem('careercompass-quiz-results');
+    localStorage.removeItem('goalguru-user');
+    localStorage.removeItem('goalguru-role');
+    localStorage.removeItem('goalguru-quiz-results');
 
     currentUser = null;
     currentRole = null;
@@ -456,7 +456,7 @@ function validateRequired(fields) {
 // Local storage utilities
 function saveToStorage(key, data) {
     try {
-        localStorage.setItem(`careercompass-${key}`, JSON.stringify(data));
+        localStorage.setItem(`goalguru-${key}`, JSON.stringify(data));
         return true;
     } catch (error) {
         console.error('Error saving to localStorage:', error);
@@ -466,7 +466,7 @@ function saveToStorage(key, data) {
 
 function getFromStorage(key) {
     try {
-        const data = localStorage.getItem(`careercompass-${key}`);
+        const data = localStorage.getItem(`goalguru-${key}`);
         return data ? JSON.parse(data) : null;
     } catch (error) {
         console.error('Error reading from localStorage:', error);
@@ -476,7 +476,7 @@ function getFromStorage(key) {
 
 function removeFromStorage(key) {
     try {
-        localStorage.removeItem(`careercompass-${key}`);
+        localStorage.removeItem(`goalguru-${key}`);
         return true;
     } catch (error) {
         console.error('Error removing from localStorage:', error);
@@ -543,7 +543,7 @@ window.addEventListener('error', function(e) {
 });
 
 // Export functions for other modules
-window.CareerCompass = {
+window.GoalGuru = {
     // Authentication
     showAuth,
     closeAuth,
@@ -585,4 +585,4 @@ window.CareerCompass = {
     getCurrentRole: () => currentRole
 };
 
-console.log('CareerCompass JavaScript loaded successfully');
+console.log('GoalGuru JavaScript loaded successfully');

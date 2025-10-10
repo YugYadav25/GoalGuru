@@ -1,4 +1,4 @@
-// CareerCompass - Resource Hub Module
+// GoalGuru - Resource Hub Module
 
 // Resource hub state
 let allResources = [];
@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeResourceHub() {
     // Track resource hub visit
-    CareerCompass.trackEvent('resource-hub', 'visited');
+    GoalGuru.trackEvent('resource-hub', 'visited');
 
     // Load any saved preferences
-    const savedFilter = CareerCompass.getFromStorage('resource-filter');
+    const savedFilter = GoalGuru.getFromStorage('resource-filter');
     if (savedFilter) {
         currentFilter = savedFilter;
         const filterBtn = document.querySelector(`[onclick="filterResources('${savedFilter}')"]`);
@@ -33,7 +33,7 @@ function setupEventListeners() {
     // Search functionality
     const searchInput = document.getElementById('resourceSearch');
     if (searchInput) {
-        searchInput.addEventListener('input', CareerCompass.debounce(searchResources, 300));
+        searchInput.addEventListener('input', GoalGuru.debounce(searchResources, 300));
     }
 }
 
@@ -144,7 +144,7 @@ function loadResourceData() {
             {
                 id: 'rahul-iit-journey',
                 title: 'From Commerce to IIT: Rahuls Journey',
-                description: '"I switched from Commerce to Science in 12th grade and cracked JEE Advanced. Here is how CareerCompass helped me..."',
+                description: '"I switched from Commerce to Science in 12th grade and cracked JEE Advanced. Here is how GoalGuru helped me..."',
                 achievement: 'IIT Delhi, Computer Science',
                 year: 'Batch 2024',
                 category: 'success-story'
@@ -152,7 +152,7 @@ function loadResourceData() {
             {
                 id: 'priya-neet-success',
                 title: 'NEET Success Against All Odds',
-                description: '"Coming from a rural background, I had limited resources. CareerCompass guided me to AIIMS Delhi..."',
+                description: '"Coming from a rural background, I had limited resources. GoalGuru guided me to AIIMS Delhi..."',
                 achievement: 'AIIMS Delhi, MBBS',
                 year: 'Batch 2023',
                 category: 'success-story'
@@ -174,8 +174,8 @@ function loadResourceData() {
 // Filter resources by type
 function filterResources(type) {
     currentFilter = type;
-    CareerCompass.saveToStorage('resource-filter', type);
-    CareerCompass.trackEvent('resource', 'filter-applied', type);
+    GoalGuru.saveToStorage('resource-filter', type);
+    GoalGuru.trackEvent('resource', 'filter-applied', type);
 
     // Update active filter button
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -210,7 +210,7 @@ function searchResources() {
         return;
     }
 
-    CareerCompass.trackEvent('resource', 'searched', query);
+    GoalGuru.trackEvent('resource', 'searched', query);
 
     // Search across all resource types
     const searchResults = [];
@@ -395,7 +395,7 @@ function clearSearch() {
 
 // Watch video
 function watchVideo(videoId) {
-    CareerCompass.trackEvent('resource', 'video-watched', videoId);
+    GoalGuru.trackEvent('resource', 'video-watched', videoId);
 
     const video = allResources.videos.find(v => v.id === videoId);
     if (!video) return;
@@ -416,7 +416,7 @@ function watchVideo(videoId) {
 
         modal.style.display = 'block';
     } else {
-        CareerCompass.showNotification(`Opening video: ${video.title}`, 'info');
+        GoalGuru.showNotification(`Opening video: ${video.title}`, 'info');
     }
 }
 
@@ -433,24 +433,24 @@ function closeVideoModal() {
 
 // Read article
 function readArticle(articleId) {
-    CareerCompass.trackEvent('resource', 'article-read', articleId);
+    GoalGuru.trackEvent('resource', 'article-read', articleId);
 
     const article = allResources.articles.find(a => a.id === articleId);
     if (!article) return;
 
     // In a real application, this would navigate to the full article
-    CareerCompass.showNotification(`Opening article: ${article.title}`, 'info');
+    GoalGuru.showNotification(`Opening article: ${article.title}`, 'info');
 }
 
 // Download guide
 function downloadGuide(guideId) {
-    CareerCompass.trackEvent('resource', 'guide-downloaded', guideId);
+    GoalGuru.trackEvent('resource', 'guide-downloaded', guideId);
 
     const guide = allResources.guides.find(g => g.id === guideId);
     if (!guide) return;
 
     // Simulate download
-    CareerCompass.showNotification(`Downloading: ${guide.title}`, 'success');
+    GoalGuru.showNotification(`Downloading: ${guide.title}`, 'success');
 
     // In a real application, this would trigger the actual download
     console.log('Downloading guide:', guide.title);
@@ -458,24 +458,24 @@ function downloadGuide(guideId) {
 
 // Read success story
 function readStory(storyId) {
-    CareerCompass.trackEvent('resource', 'story-read', storyId);
+    GoalGuru.trackEvent('resource', 'story-read', storyId);
 
     const story = allResources.stories.find(s => s.id === storyId);
     if (!story) return;
 
     // In a real application, this would open the full story
-    CareerCompass.showNotification(`Opening success story: ${story.title}`, 'info');
+    GoalGuru.showNotification(`Opening success story: ${story.title}`, 'info');
 }
 
 // Apply for scholarship
 function applyScholarship(scholarshipId) {
-    CareerCompass.trackEvent('scholarship', 'apply-clicked', scholarshipId);
-    CareerCompass.showNotification(`Redirecting to ${scholarshipId.toUpperCase()} application...`, 'info');
+    GoalGuru.trackEvent('scholarship', 'apply-clicked', scholarshipId);
+    GoalGuru.showNotification(`Redirecting to ${scholarshipId.toUpperCase()} application...`, 'info');
 }
 
 // View scholarship details
 function viewScholarshipDetails(scholarshipId) {
-    CareerCompass.trackEvent('scholarship', 'details-viewed', scholarshipId);
+    GoalGuru.trackEvent('scholarship', 'details-viewed', scholarshipId);
 
     const scholarshipInfo = {
         'ntse': {
@@ -504,7 +504,7 @@ function viewScholarshipDetails(scholarshipId) {
 
     const info = scholarshipInfo[scholarshipId];
     if (info) {
-        CareerCompass.showNotification(`${info.name}\n${info.details}`, 'info');
+        GoalGuru.showNotification(`${info.name}\n${info.details}`, 'info');
     }
 }
 
