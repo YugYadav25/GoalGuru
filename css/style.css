@@ -18,11 +18,25 @@
     --border-radius: 12px;
     --transition: all 0.3s ease;
 }
+.cursor {
+    display: inline-block;
+    font-weight: 600;
+    animation: blink 1s infinite;
+    color: var(--primary-color);
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }}
 
 /* Reset and Base Styles */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -36,10 +50,13 @@ body {
 }
 
 .container {
-    width: 100vw;
-    margin:  auto;
-    padding: 0 20px;
+  max-width: 1200px;  /* or your preferred max width */
+  width: 100%;         /* full width up to max-width */
+  margin: 0 auto;      /* centers the container horizontally */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
+
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -71,6 +88,7 @@ p {
 /* Navigation */
 
 .navbar {
+    /* background-color: black; */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -84,6 +102,7 @@ p {
 }
 
 .nav-brand {
+    /* background-color: black; */
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -97,10 +116,13 @@ p {
 }
 
 .nav-links {
+    /* background-color: black; */
   display: flex;
   gap: 2rem;
 }
 .nav-links a {
+    /* background-color: black;  */
+    margin-top: 0.5rem;
   position: relative;
   color: var(--text-primary);
   font-weight: 500;
@@ -1338,7 +1360,7 @@ p {
     background: var(--secondary-color);
     color: white;
     padding: 3rem 0 1rem;
-    margin-top: 4rem;
+    margin-top: 10px;
 }
 
 .footer-content {
@@ -1355,7 +1377,7 @@ p {
 }
 
 .footer-brand i {
-    font-size: 2rem;
+    font-size: 10rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }

@@ -14,6 +14,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize smooth scrolling
     initializeSmoothScrolling();
 });
+const typewriterText = document.getElementById('typewriter-text');
+const messages = [
+    'Personalized career guidance for Class 10th & 12th students and parents.',
+    'Make informed decisions about streams, colleges, and career paths.',
+    'Discover your ideal stream with our interactive assessment quiz.',
+    'Find the perfect college that matches your goals and budget.',
+    'Get expert guidance from experienced counselors and mentors.'
+];
+
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+
+function typeWriter() {
+    const currentMessage = messages[messageIndex];
+
+    if (isDeleting) {
+        typewriterText.textContent = currentMessage.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+    } else {
+        typewriterText.textContent = currentMessage.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+    }
+
+    if (!isDeleting && charIndex === currentMessage.length) {
+        setTimeout(() => {
+            isDeleting = true;
+        }, 2000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        messageIndex = (messageIndex + 1) % messages.length;
+    }
+
+    setTimeout(typeWriter, typeSpeed);
+}
+
+// Start the typing effect when DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    typeWriter();
+});
+
 
 // Initialize the application
 function initializeApp() {
