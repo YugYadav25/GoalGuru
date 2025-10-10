@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Student Dashboard - CareerCompass</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i>
+                <h1>CareerCompass</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="resource-hub.html">Resources</a>
+                <a href="college-finder.html">College Finder</a>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Header -->
+        <section class="dashboard-header">
+            <div class="welcome-message">
+                <h1>Your College & Career Journey</h1>
+                <p>Navigate admissions, entrance exams, and career planning</p>
+            </div>
+            <div class="stream-selector">
+                <label for="streamSelect">Your Stream:</label>
+                <select id="streamSelect" onchange="updateDashboard()">
+                    <option value="">Select Stream</option>
+                    <option value="science-bio">Science (Biology)</option>
+                    <option value="science-math">Science (Mathematics)</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="arts">Arts/Humanities</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Dashboard Content -->
+        <section class="dashboard-content">
+            <div class="dashboard-grid">
+                <!-- Exam Tracker -->
+                <div class="dashboard-card primary-card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Exam Tracker</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="exam-list" id="examList">
+                            <div class="exam-item">
+                                <div class="exam-info">
+                                    <h4>JEE Main 2025</h4>
+                                    <p class="exam-date">Registration: Nov 2024</p>
+                                    <p class="exam-status pending">Registration Open</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                            </div>
+                            <div class="exam-item">
+                                <div class="exam-info">
+                                    <h4>NEET 2025</h4>
+                                    <p class="exam-date">Registration: Dec 2024</p>
+                                    <p class="exam-status upcoming">Upcoming</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewAllExams()">
+                            View All Exams
+                        </button>
+                    </div>
+                </div>
+
+                <!-- College Finder -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>College Finder</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Discover colleges that match your preferences, budget, and career goals.</p>
+                        <div class="finder-stats">
+                            <div class="stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Colleges</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Branches</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="openCollegeFinder()">
+                            <i class="fas fa-search"></i>
+                            Find Colleges
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Career Roadmaps -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-route"></i>
+                        <h3>Career Roadmaps</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Explore detailed career paths and required qualifications.</p>
+                        <div class="roadmap-categories">
+                            <button class="category-btn" onclick="viewRoadmap('engineering')">
+                                <i class="fas fa-cogs"></i>
+                                Engineering
+                            </button>
+                            <button class="category-btn" onclick="viewRoadmap('medical')">
+                                <i class="fas fa-stethoscope"></i>
+                                Medical
+                            </button>
+                            <button class="category-btn" onclick="viewRoadmap('business')">
+                                <i class="fas fa-briefcase"></i>
+                                Business
+                            </button>
+                            <button class="category-btn" onclick="viewRoadmap('arts')">
+                                <i class="fas fa-palette"></i>
+                                Arts & Design
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch Advisor -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-sitemap"></i>
+                        <h3>Branch Advisor</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Get personalized branch recommendations based on your interests.</p>
+                        <div class="branch-quiz-container">
+                            <div class="quiz-preview">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Branch Selection Assessment</span>
+                            </div>
+                            <button class="btn btn-outline" onclick="startBranchQuiz()">
+                                Take Assessment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scholarship Finder -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-scholarship"></i>
+                        <h3>Scholarship Opportunities</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Find scholarships that match your profile and reduce education costs.</p>
+                        <div class="scholarship-highlights">
+                            <div class="scholarship-item">
+                                <h5>Merit-Based Scholarships</h5>
+                                <p>Up to ₹2,00,000</p>
+                            </div>
+                            <div class="scholarship-item">
+                                <h5>Need-Based Aid</h5>
+                                <p>Full tuition coverage</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="exploreScholarships()">
+                            Explore Scholarships
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preparation Tools -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Board Preparation</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="preparation-tools">
+                            <a href="#" class="tool-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Previous Year Papers</span>
+                            </a>
+                            <a href="#" class="tool-link">
+                                <i class="fas fa-clock"></i>
+                                <span>Time Management</span>
+                            </a>
+                            <a href="#" class="tool-link">
+                                <i class="fas fa-brain"></i>
+                                <span>Study Techniques</span>
+                            </a>
+                            <a href="#" class="tool-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Progress Tracker</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="compareColleges()">
+                                <i class="fas fa-balance-scale"></i>
+                                Compare Colleges
+                            </button>
+                            <button class="action-btn" onclick="cutoffPredictor()">
+                                <i class="fas fa-calculator"></i>
+                                Cutoff Predictor
+                            </button>
+                            <button class="action-btn" onclick="admissionAlert()">
+                                <i class="fas fa-bell"></i>
+                                Admission Alerts
+                            </button>
+                            <button class="action-btn" onclick="counselingInfo()">
+                                <i class="fas fa-info-circle"></i>
+                                Counseling Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/12th-dashboard.js"></script>
+</body>
+</html>

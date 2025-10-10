@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Role - CareerCompass</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i>
+                <h1>CareerCompass</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Role Selection Section -->
+        <section class="role-selection">
+            <div class="section-header">
+                <h1>Choose Your Role</h1>
+                <p>Select your category to get personalized guidance</p>
+            </div>
+
+            <div class="roles-grid">
+                <div class="role-card" onclick="selectRole('10th-student')">
+                    <div class="role-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>10th Standard Student</h3>
+                    <p>Discover your ideal stream with our career assessment quiz and explore future possibilities.</p>
+                    <div class="role-features">
+                        <span><i class="fas fa-check"></i> Stream Selection Quiz</span>
+                        <span><i class="fas fa-check"></i> Career Discovery</span>
+                        <span><i class="fas fa-check"></i> Subject Guidance</span>
+                    </div>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+
+                <div class="role-card" onclick="selectRole('12th-student')">
+                    <div class="role-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>12th Standard Student</h3>
+                    <p>Navigate college admissions, entrance exams, and career planning with expert guidance.</p>
+                    <div class="role-features">
+                        <span><i class="fas fa-check"></i> College Finder</span>
+                        <span><i class="fas fa-check"></i> Exam Tracker</span>
+                        <span><i class="fas fa-check"></i> Career Roadmaps</span>
+                    </div>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+
+                <div class="role-card" onclick="selectRole('parent')">
+                    <div class="role-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Parent</h3>
+                    <p>Get the tools and knowledge you need to support your child's educational journey.</p>
+                    <div class="role-features">
+                        <span><i class="fas fa-check"></i> Exam Timelines</span>
+                        <span><i class="fas fa-check"></i> Support Strategies</span>
+                        <span><i class="fas fa-check"></i> Cost Analysis</span>
+                    </div>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

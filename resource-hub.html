@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Hub - CareerCompass</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i>
+                <h1>CareerCompass</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="javascript:history.back()">Back to Dashboard</a>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Resource Hub Header -->
+        <section class="resource-header">
+            <div class="section-header">
+                <h1>Resource Hub</h1>
+                <p>Comprehensive learning materials for students and parents</p>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="resource-filters">
+                <button class="filter-btn active" onclick="filterResources('all')">All Resources</button>
+                <button class="filter-btn" onclick="filterResources('videos')">Videos</button>
+                <button class="filter-btn" onclick="filterResources('articles')">Articles</button>
+                <button class="filter-btn" onclick="filterResources('guides')">Guides</button>
+                <button class="filter-btn" onclick="filterResources('stories')">Success Stories</button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="resourceSearch" placeholder="Search resources..." onkeyup="searchResources()">
+                <i class="fas fa-search"></i>
+            </div>
+        </section>
+
+        <!-- Resource Categories -->
+        <section class="resource-content">
+            <!-- Video Resources -->
+            <div class="resource-category" id="videos">
+                <h2><i class="fas fa-video"></i> Educational Videos</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                            <span class="duration">15:30</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Choosing the Right Stream After 10th</h3>
+                            <p>Expert guidance on selecting between Science, Commerce, and Arts streams</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-eye"></i> 25K views</span>
+                                <span><i class="fas fa-clock"></i> 2 days ago</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary" onclick="watchVideo('stream-selection')">
+                                Watch Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                            <span class="duration">22:45</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>JEE Main Preparation Strategy</h3>
+                            <p>Comprehensive guide to cracking JEE Main with effective study techniques</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-eye"></i> 40K views</span>
+                                <span><i class="fas fa-clock"></i> 1 week ago</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary" onclick="watchVideo('jee-preparation')">
+                                Watch Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                            <span class="duration">18:20</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>NEET Biology Study Tips</h3>
+                            <p>Master biology concepts for NEET with proven study methods</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-eye"></i> 32K views</span>
+                                <span><i class="fas fa-clock"></i> 3 days ago</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary" onclick="watchVideo('neet-biology')">
+                                Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Resources -->
+            <div class="resource-category" id="articles">
+                <h2><i class="fas fa-newspaper"></i> Career Articles</h2>
+                <div class="resource-grid">
+                    <div class="resource-card article-card">
+                        <div class="article-header">
+                            <span class="article-category">Career Guide</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Top Engineering Branches in 2025</h3>
+                            <p>Explore the most promising engineering fields and their career prospects in the current market...</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Dr. Priya Sharma</span>
+                                <span><i class="fas fa-calendar"></i> Oct 8, 2025</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readArticle('engineering-branches-2025')">
+                                Read Article
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card article-card">
+                        <div class="article-header">
+                            <span class="article-category">Study Tips</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Effective Time Management for Board Exams</h3>
+                            <p>Proven techniques to manage your time effectively during Class 12 board exam preparation...</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Rajesh Kumar</span>
+                                <span><i class="fas fa-calendar"></i> Oct 5, 2025</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readArticle('time-management-boards')">
+                                Read Article
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card article-card">
+                        <div class="article-header">
+                            <span class="article-category">College Guide</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <div class="resource-info">
+                            <h3>How to Choose the Right College</h3>
+                            <p>A comprehensive guide to evaluating colleges based on various factors like placement, faculty, and infrastructure...</p>
+                            <div class="resource-meta">
+                                <span><i class="fas fa-user"></i> Anita Verma</span>
+                                <span><i class="fas fa-calendar"></i> Oct 1, 2025</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readArticle('choose-right-college')">
+                                Read Article
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Guides -->
+            <div class="resource-category" id="guides">
+                <h2><i class="fas fa-book-open"></i> Study Guides</h2>
+                <div class="resource-grid">
+                    <div class="resource-card guide-card">
+                        <div class="guide-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Complete Physics Guide for JEE</h3>
+                            <p>Comprehensive study material covering all JEE Physics topics with solved examples</p>
+                            <div class="guide-stats">
+                                <span><i class="fas fa-file-alt"></i> 250 pages</span>
+                                <span><i class="fas fa-download"></i> 15K downloads</span>
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('jee-physics-guide')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card guide-card">
+                        <div class="guide-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Mathematics Formula Handbook</h3>
+                            <p>Essential formulas and shortcuts for Class 12 Mathematics and competitive exams</p>
+                            <div class="guide-stats">
+                                <span><i class="fas fa-file-alt"></i> 80 pages</span>
+                                <span><i class="fas fa-download"></i> 22K downloads</span>
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('math-formula-handbook')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card guide-card">
+                        <div class="guide-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>NEET Biology Notes</h3>
+                            <p>Comprehensive biology notes with diagrams and mnemonics for NEET preparation</p>
+                            <div class="guide-stats">
+                                <span><i class="fas fa-file-alt"></i> 180 pages</span>
+                                <span><i class="fas fa-download"></i> 18K downloads</span>
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('neet-biology-notes')">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories -->
+            <div class="resource-category" id="stories">
+                <h2><i class="fas fa-star"></i> Success Stories</h2>
+                <div class="resource-grid">
+                    <div class="resource-card story-card">
+                        <div class="story-image">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>From Commerce to IIT: Rahul's Journey</h3>
+                            <p>"I switched from Commerce to Science in 12th grade and cracked JEE Advanced. Here's how CareerCompass helped me..."</p>
+                            <div class="story-meta">
+                                <span class="story-achievement">IIT Delhi, Computer Science</span>
+                                <span class="story-year">Batch 2024</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readStory('rahul-iit-journey')">
+                                Read Story
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card story-card">
+                        <div class="story-image">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>NEET Success Against All Odds</h3>
+                            <p>"Coming from a rural background, I had limited resources. CareerCompass guided me to AIIMS Delhi..."</p>
+                            <div class="story-meta">
+                                <span class="story-achievement">AIIMS Delhi, MBBS</span>
+                                <span class="story-year">Batch 2023</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readStory('priya-neet-success')">
+                                Read Story
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card story-card">
+                        <div class="story-image">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Arts Stream to Civil Services</h3>
+                            <p>"Everyone doubted my decision to choose Arts. Today, I'm a proud IAS officer thanks to the right guidance..."</p>
+                            <div class="story-meta">
+                                <span class="story-achievement">IAS, UPSC 2023</span>
+                                <span class="story-year">Rank 45</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" onclick="readStory('amit-ias-success')">
+                                Read Story
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scholarship Information -->
+            <div class="resource-category" id="scholarships">
+                <h2><i class="fas fa-graduation-cap"></i> Scholarship Information</h2>
+                <div class="scholarship-list">
+                    <div class="scholarship-card">
+                        <div class="scholarship-header">
+                            <h3>National Talent Search Examination (NTSE)</h3>
+                            <span class="scholarship-amount">₹1,25,000/year</span>
+                        </div>
+                        <div class="scholarship-details">
+                            <p><strong>Eligibility:</strong> Class 10 students with 60% in Class 9</p>
+                            <p><strong>Application Deadline:</strong> November 15, 2024</p>
+                            <p><strong>Benefits:</strong> Scholarship throughout higher education</p>
+                        </div>
+                        <div class="scholarship-actions">
+                            <button class="btn btn-sm btn-primary" onclick="applyScholarship('ntse')">
+                                Apply Now
+                            </button>
+                            <button class="btn btn-sm btn-outline" onclick="viewScholarshipDetails('ntse')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="scholarship-card">
+                        <div class="scholarship-header">
+                            <h3>Kishore Vaigyanik Protsahan Yojana (KVPY)</h3>
+                            <span class="scholarship-amount">₹80,000/year</span>
+                        </div>
+                        <div class="scholarship-details">
+                            <p><strong>Eligibility:</strong> Class 11 & 12 Science students</p>
+                            <p><strong>Application Deadline:</strong> October 31, 2024</p>
+                            <p><strong>Benefits:</strong> Fellowship for research careers</p>
+                        </div>
+                        <div class="scholarship-actions">
+                            <button class="btn btn-sm btn-primary" onclick="applyScholarship('kvpy')">
+                                Apply Now
+                            </button>
+                            <button class="btn btn-sm btn-outline" onclick="viewScholarshipDetails('kvpy')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3 id="videoTitle"></h3>
+                <p id="videoDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/resource-hub.js"></script>
+</body>
+</html>

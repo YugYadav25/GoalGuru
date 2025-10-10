@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - CareerCompass</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i>
+                <h1>CareerCompass</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="resource-hub.html">Resources</a>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Header -->
+        <section class="dashboard-header">
+            <div class="welcome-message">
+                <h1>Supporting Your Child's Journey</h1>
+                <p>Essential tools and guidance for parents</p>
+            </div>
+            <div class="child-info">
+                <label for="childClass">Child's Current Class:</label>
+                <select id="childClass" onchange="updateParentDashboard()">
+                    <option value="">Select Class</option>
+                    <option value="10th">Class 10th</option>
+                    <option value="12th">Class 12th</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Dashboard Content -->
+        <section class="dashboard-content">
+            <div class="dashboard-grid">
+                <!-- Exam Timeline -->
+                <div class="dashboard-card primary-card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Important Exam Timeline</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Nov 2024</div>
+                                <div class="timeline-content">
+                                    <h4>JEE Main Registration</h4>
+                                    <p>Registration opens for JEE Main 2025</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Dec 2024</div>
+                                <div class="timeline-content">
+                                    <h4>NEET Registration</h4>
+                                    <p>NEET 2025 registration begins</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jan 2025</div>
+                                <div class="timeline-content">
+                                    <h4>JEE Main Session 1</h4>
+                                    <p>First session of JEE Main exam</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="viewFullTimeline()">
+                            View Complete Timeline
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Support Strategies -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>How to Support Your Child</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="support-tips">
+                            <div class="tip-category">
+                                <h4>Emotional Support</h4>
+                                <ul>
+                                    <li>Listen to their concerns without judgment</li>
+                                    <li>Encourage breaks and stress management</li>
+                                    <li>Celebrate small achievements</li>
+                                </ul>
+                            </div>
+                            <div class="tip-category">
+                                <h4>Academic Support</h4>
+                                <ul>
+                                    <li>Create a conducive study environment</li>
+                                    <li>Help with time management</li>
+                                    <li>Monitor progress without pressure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="getSupportGuide()">
+                            Get Detailed Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cost Calculator -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Education Cost Calculator</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Plan your education budget with our comprehensive cost calculator.</p>
+                        <div class="cost-categories">
+                            <div class="cost-item">
+                                <span class="cost-label">Engineering (4 years)</span>
+                                <span class="cost-range">₹4-20 Lakhs</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Medical (5.5 years)</span>
+                                <span class="cost-range">₹10-50 Lakhs</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Management (2 years)</span>
+                                <span class="cost-range">₹5-25 Lakhs</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openCostCalculator()">
+                            Calculate Costs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ROI Analysis -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Career ROI Analysis</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Understand the return on investment for different career paths.</p>
+                        <div class="roi-preview">
+                            <div class="roi-item">
+                                <h5>Software Engineering</h5>
+                                <div class="roi-stats">
+                                    <span>Avg. Starting Salary: ₹6-15 LPA</span>
+                                    <span>ROI: 300-500%</span>
+                                </div>
+                            </div>
+                            <div class="roi-item">
+                                <h5>Medicine</h5>
+                                <div class="roi-stats">
+                                    <span>Avg. Starting Salary: ₹4-12 LPA</span>
+                                    <span>ROI: 200-400%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="viewDetailedROI()">
+                            View Detailed Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scholarship Information -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Scholarship Opportunities</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Find financial aid options to reduce education costs.</p>
+                        <div class="scholarship-types">
+                            <div class="scholarship-type">
+                                <i class="fas fa-medal"></i>
+                                <div>
+                                    <h5>Merit-Based</h5>
+                                    <p>Based on academic performance</p>
+                                </div>
+                            </div>
+                            <div class="scholarship-type">
+                                <i class="fas fa-heart"></i>
+                                <div>
+                                    <h5>Need-Based</h5>
+                                    <p>Based on family income</p>
+                                </div>
+                            </div>
+                            <div class="scholarship-type">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h5>Category-Based</h5>
+                                    <p>Based on social category</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="findScholarships()">
+                            Find Scholarships
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Common Questions -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Frequently Asked Questions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="faq-list">
+                            <div class="faq-item" onclick="toggleFAQ(1)">
+                                <div class="faq-question">
+                                    <span>How do I know if my child chose the right stream?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-1">
+                                    Look for signs of genuine interest, consistent performance, and enthusiasm in related subjects. Our stream assessment can provide objective insights.
+                                </div>
+                            </div>
+                            <div class="faq-item" onclick="toggleFAQ(2)">
+                                <div class="faq-question">
+                                    <span>When should we start college planning?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-2">
+                                    Ideally, start in Class 11. This gives enough time to research options, prepare for entrance exams, and make informed decisions.
+                                </div>
+                            </div>
+                            <div class="faq-item" onclick="toggleFAQ(3)">
+                                <div class="faq-question">
+                                    <span>How important are entrance exam coaching classes?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-3">
+                                    While helpful, they're not mandatory. Self-study with good resources can be equally effective. Assess your child's learning style and needs.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="viewAllFAQs()">
+                            View All FAQs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Communication Tips -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-comments"></i>
+                        <h3>Communication Guidelines</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="communication-tips">
+                            <div class="tip">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ask open-ended questions about their interests</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Avoid comparing with other children</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Focus on effort rather than just results</span>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Be patient with their decision-making process</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources for Parents -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-book"></i>
+                        <h3>Parent Resources</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="resource-links">
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-video"></i>
+                                <span>Webinars for Parents</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Parent Guidebooks</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-users"></i>
+                                <span>Parent Community</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-phone"></i>
+                                <span>Expert Consultation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/parent-dashboard.js"></script>
+</body>
+</html>
