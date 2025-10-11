@@ -1,4 +1,4 @@
-// GoalGuru - Parent Dashboard Module
+//  GoalGuru - Parent Dashboard Module
 
 // Parent dashboard state
 let childClass = '';
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeParentDashboard() {
     // Load saved child class
-    const savedClass = GoalGuru.getFromStorage('child-class');
+    const savedClass =  GoalGuru.getFromStorage('child-class');
     if (savedClass) {
         childClass = savedClass;
         document.getElementById('childClass').value = savedClass;
@@ -22,7 +22,7 @@ function initializeParentDashboard() {
     }
 
     // Track parent dashboard visit
-    GoalGuru.trackEvent('dashboard', 'visited', 'parent');
+     GoalGuru.trackEvent('dashboard', 'visited', 'parent');
 }
 
 // Update parent dashboard based on child's class
@@ -30,11 +30,11 @@ function updateParentDashboard() {
     childClass = document.getElementById('childClass').value;
 
     if (childClass) {
-        GoalGuru.saveToStorage('child-class', childClass);
+         GoalGuru.saveToStorage('child-class', childClass);
         updateTimelineForClass();
 
         // Track child class selection
-        GoalGuru.trackEvent('parent', 'child-class-selected', childClass);
+         GoalGuru.trackEvent('parent', 'child-class-selected', childClass);
     }
 }
 
@@ -166,15 +166,15 @@ function updateTimelineForClass() {
 
 // View full timeline
 function viewFullTimeline() {
-    GoalGuru.trackEvent('parent', 'view-full-timeline', childClass);
-    GoalGuru.showNotification('Opening detailed academic calendar...', 'info');
+     GoalGuru.trackEvent('parent', 'view-full-timeline', childClass);
+     GoalGuru.showNotification('Opening detailed academic calendar...', 'info');
 
     // In a real app, this would open a comprehensive timeline page
 }
 
 // Get support guide
 function getSupportGuide() {
-    GoalGuru.trackEvent('parent', 'support-guide-requested');
+     GoalGuru.trackEvent('parent', 'support-guide-requested');
 
     const guide = `
         PARENTAL SUPPORT GUIDE:
@@ -198,12 +198,12 @@ function getSupportGuide() {
         • Seek professional help if needed
     `;
 
-    GoalGuru.showNotification(guide, 'info');
+     GoalGuru.showNotification(guide, 'info');
 }
 
 // Open cost calculator
 function openCostCalculator() {
-    GoalGuru.trackEvent('parent', 'cost-calculator-opened');
+     GoalGuru.trackEvent('parent', 'cost-calculator-opened');
 
     const costInfo = `
         EDUCATION COST CALCULATOR
@@ -224,12 +224,12 @@ function openCostCalculator() {
         *Costs include tuition, hostel, and other expenses
     `;
 
-    GoalGuru.showNotification(costInfo, 'info');
+     GoalGuru.showNotification(costInfo, 'info');
 }
 
 // View detailed ROI analysis
 function viewDetailedROI() {
-    GoalGuru.trackEvent('parent', 'roi-analysis-viewed');
+     GoalGuru.trackEvent('parent', 'roi-analysis-viewed');
 
     const roiInfo = `
         CAREER ROI ANALYSIS
@@ -250,12 +250,12 @@ function viewDetailedROI() {
         • 5-year ROI: 250-400%
     `;
 
-    GoalGuru.showNotification(roiInfo, 'info');
+     GoalGuru.showNotification(roiInfo, 'info');
 }
 
 // Find scholarships
 function findScholarships() {
-    GoalGuru.trackEvent('parent', 'scholarship-finder-opened');
+     GoalGuru.trackEvent('parent', 'scholarship-finder-opened');
 
     const scholarshipInfo = `
         SCHOLARSHIP OPPORTUNITIES:
@@ -276,7 +276,7 @@ function findScholarships() {
         • Girl child incentives: Various amounts
     `;
 
-    GoalGuru.showNotification(scholarshipInfo, 'info');
+     GoalGuru.showNotification(scholarshipInfo, 'info');
 }
 
 // Toggle FAQ answers
@@ -306,15 +306,15 @@ function toggleFAQ(faqId) {
         // Track FAQ interaction
         const faq = faqData.find(f => f.id === faqId);
         if (faq) {
-            GoalGuru.trackEvent('parent', 'faq-viewed', faq.question.substring(0, 50));
+             GoalGuru.trackEvent('parent', 'faq-viewed', faq.question.substring(0, 50));
         }
     }
 }
 
 // View all FAQs
 function viewAllFAQs() {
-    GoalGuru.trackEvent('parent', 'all-faqs-viewed');
-    GoalGuru.showNotification('Opening comprehensive FAQ section...', 'info');
+     GoalGuru.trackEvent('parent', 'all-faqs-viewed');
+     GoalGuru.showNotification('Opening comprehensive FAQ section...', 'info');
 }
 
 // Communication tips and resources
@@ -368,16 +368,16 @@ function getDailyTip() {
 
 // Show daily tip if parent visits dashboard
 function showDailyTip() {
-    const lastTipDate = GoalGuru.getFromStorage('last-tip-date');
+    const lastTipDate =  GoalGuru.getFromStorage('last-tip-date');
     const today = new Date().toDateString();
 
     if (lastTipDate !== today) {
         const tip = getDailyTip();
         setTimeout(() => {
-            GoalGuru.showNotification(`Daily Tip: ${tip}`, 'info');
+             GoalGuru.showNotification(`Daily Tip: ${tip}`, 'info');
         }, 2000);
 
-        GoalGuru.saveToStorage('last-tip-date', today);
+         GoalGuru.saveToStorage('last-tip-date', today);
     }
 }
 

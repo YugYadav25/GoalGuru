@@ -1,4 +1,4 @@
-// GoalGuru - Stream Selection Quiz
+//  GoalGuru - Stream Selection Quiz
 
 // Quiz data and state
 let currentQuestionIndex = 0;

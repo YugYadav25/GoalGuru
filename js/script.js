@@ -1,4 +1,4 @@
-// GoalGuru - Main JavaScript
+//  GoalGuru - Main JavaScript
 
 // Global Variables
 let currentUser = null;
@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize the application
 function initializeApp() {
-    console.log('GoalGuru initialized');
+    console.log(' GoalGuru initialized');
 
     // Check for saved theme preference
-    const savedTheme = localStorage.getItem('goalguru-theme');
+    const savedTheme = localStorage.getItem(' GoalGuru-theme');
     if (savedTheme) {
         document.body.classList.add(savedTheme);
     }
@@ -72,7 +72,7 @@ function initializeApp() {
 
 // Check user session
 function checkUserSession() {
-    const savedUser = localStorage.getItem('goalguru-user');
+    const savedUser = localStorage.getItem(' GoalGuru-user');
     if (savedUser) {
         currentUser = JSON.parse(savedUser);
         console.log('User session found:', currentUser.name);
@@ -155,7 +155,7 @@ function handleLogin(event) {
     };
 
     // Save user data
-    localStorage.setItem('goalguru-user', JSON.stringify(userData));
+    localStorage.setItem(' GoalGuru-user', JSON.stringify(userData));
     currentUser = userData;
 
     // Close modal
@@ -203,7 +203,7 @@ function handleSignup(event) {
     };
 
     // Save user data
-    localStorage.setItem('goalguru-user', JSON.stringify(userData));
+    localStorage.setItem(' GoalGuru-user', JSON.stringify(userData));
     currentUser = userData;
 
     // Close modal
@@ -221,7 +221,7 @@ function handleSignup(event) {
 // Role selection function
 function selectRole(role) {
     currentRole = role;
-    localStorage.setItem('goalguru-role', role);
+    localStorage.setItem(' GoalGuru-role', role);
 
     // Show loading state
     showNotification('Loading your personalized dashboard...', 'info');
@@ -247,9 +247,9 @@ function selectRole(role) {
 // Logout function
 function logout() {
     // Clear user data
-    localStorage.removeItem('goalguru-user');
-    localStorage.removeItem('goalguru-role');
-    localStorage.removeItem('goalguru-quiz-results');
+    localStorage.removeItem(' GoalGuru-user');
+    localStorage.removeItem(' GoalGuru-role');
+    localStorage.removeItem(' GoalGuru-quiz-results');
 
     currentUser = null;
     currentRole = null;
@@ -500,7 +500,7 @@ function validateRequired(fields) {
 // Local storage utilities
 function saveToStorage(key, data) {
     try {
-        localStorage.setItem(`goalguru-${key}`, JSON.stringify(data));
+        localStorage.setItem(` GoalGuru-${key}`, JSON.stringify(data));
         return true;
     } catch (error) {
         console.error('Error saving to localStorage:', error);
@@ -510,7 +510,7 @@ function saveToStorage(key, data) {
 
 function getFromStorage(key) {
     try {
-        const data = localStorage.getItem(`goalguru-${key}`);
+        const data = localStorage.getItem(` GoalGuru-${key}`);
         return data ? JSON.parse(data) : null;
     } catch (error) {
         console.error('Error reading from localStorage:', error);
@@ -520,7 +520,7 @@ function getFromStorage(key) {
 
 function removeFromStorage(key) {
     try {
-        localStorage.removeItem(`goalguru-${key}`);
+        localStorage.removeItem(` GoalGuru-${key}`);
         return true;
     } catch (error) {
         console.error('Error removing from localStorage:', error);
@@ -587,7 +587,7 @@ window.addEventListener('error', function(e) {
 });
 
 // Export functions for other modules
-window.GoalGuru = {
+window. GoalGuru = {
     // Authentication
     showAuth,
     closeAuth,
@@ -629,4 +629,5 @@ window.GoalGuru = {
     getCurrentRole: () => currentRole
 };
 
-console.log('GoalGuru JavaScript loaded successfully');
+console.log(' GoalGuru JavaScript loaded successfully');
+
