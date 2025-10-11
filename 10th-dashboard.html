@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10th Student Dashboard -  GoalGuru</title>
+    <title>10th Student Dashboard - GoalGuru</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="assets/goal_guru.jpg" type="image/x-icon">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-compass"></i>
+            <h1>GoalGuru</h1>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="resource-hub.html">Resources</a>
+            <button class="btn btn-outline" onclick="logout()">Logout</button>
+        </div>
+    </nav>
     <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-brand">
-                <i class="fas fa-compass"></i>
-                <h1> GoalGuru</h1>
-            </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="resource-hub.html">Resources</a>
-                <button class="btn btn-outline" onclick="logout()">Logout</button>
-            </div>
-        </nav>
 
         <!-- Dashboard Header -->
         <section class="dashboard-header">
@@ -41,24 +42,24 @@
         <section class="dashboard-content">
             <div class="dashboard-grid">
                 <!-- Stream Selection Quiz -->
-                <div class="dashboard-card primary-card">
+                <div class="dashboard-card primary-card" id="streamQuizCard">
                     <div class="card-header">
                         <i class="fas fa-brain"></i>
                         <h3>Stream Selection Quiz</h3>
                     </div>
-                    <div class="card-content">
-                        <p>Take our comprehensive assessment to discover which stream aligns with your interests and strengths.</p>
+                    <div class="card-content" id="quizContent">
+                        <p id="quizIntro">Take our fun quiz to discover which stream suits your interests and strengths best. Click Start to begin!</p>
                         <div class="quiz-stats">
                             <div class="stat">
-                                <span class="stat-number">15</span>
+                                <span class="stat-number">10</span>
                                 <span class="stat-label">Questions</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">10</span>
+                                <span class="stat-number">5</span>
                                 <span class="stat-label">Minutes</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary" onclick="startStreamQuiz()">
+                        <button class="btn btn-primary" id="startQuizBtn">
                             <i class="fas fa-play"></i>
                             Start Quiz
                         </button>
@@ -192,36 +193,6 @@
         </section>
     </div>
 
-    <!-- Quiz Modal -->
-    <div id="quizModal" class="modal">
-        <div class="modal-content quiz-modal">
-            <div class="quiz-header">
-                <h2>Stream Selection Quiz</h2>
-                <div class="quiz-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                    <span id="questionCounter">1/15</span>
-                </div>
-            </div>
-
-            <div class="quiz-content">
-                <div class="question-container">
-                    <h3 id="questionText">What type of activities do you enjoy most?</h3>
-                    <div class="options-container" id="optionsContainer">
-                        <!-- Options will be dynamically generated -->
-                    </div>
-                </div>
-
-                <div class="quiz-navigation">
-                    <button class="btn btn-outline" id="prevBtn" onclick="previousQuestion()">Previous</button>
-                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="../js/script.js"></script>
-    <script src="../js/quiz.js"></script>
 </body>
 </html>

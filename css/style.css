@@ -503,6 +503,11 @@ p {
 }
 
 .card-content {
+    /* background-color: ; */
+    padding: 1.5rem;
+}
+.card-content p{
+     color: black;  
     padding: 1.5rem;
 }
 
@@ -1607,3 +1612,334 @@ p {
     width: 9rem;
   }
 }
+
+
+/* Quiz Specific Styles */
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-option {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+    border: 2px solid #e1e8ed;
+    background: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.quiz-option:hover {
+    background-color: #6552D0;
+    color: white;
+    border-color: #6552D0;
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(101, 82, 208, 0.3);
+}
+
+.quiz-option:active {
+    transform: translateY(0);
+}
+
+/* Quiz Stats */
+.quiz-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+}
+
+.stat {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6552D0;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+/* Quiz Result Styles */
+.quiz-result {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.result-header {
+    margin-bottom: 2rem;
+}
+
+.result-header h3 {
+    font-size: 1.3rem;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+}
+
+.result-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0 1rem 0;
+    color: #6552D0;
+}
+
+.result-description {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #6552D0;
+}
+
+.result-description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.result-disclaimer {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.result-disclaimer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #856404;
+}
+
+.result-disclaimer strong {
+    color: #533b00;
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.result-actions .btn {
+    min-width: 160px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Enhanced Dashboard Card for Quiz */
+#streamQuizCard .card-content {
+    padding: 2rem;
+}
+
+#streamQuizCard.primary-card {
+    border: 2px solid #6552D0;
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+}
+
+/* Progress Animation */
+.quiz-progress-indicator {
+    width: 100%;
+    height: 6px;
+    background: #e1e8ed;
+    border-radius: 3px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #6552D0, #8b7ed8);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design for Quiz */
+@media (max-width: 768px) {
+    .quiz-stats {
+        gap: 1rem;
+    }
+    
+    .stat {
+        padding: 0.75rem;
+        min-width: 60px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .quiz-option {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .result-actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .result-header h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .stat {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .quiz-result {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .result-description {
+        padding: 1.25rem;
+    }
+    
+    .result-disclaimer {
+        padding: 1.25rem;
+    }
+}
+
+/* Animation for Quiz Transitions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quiz-question, .quiz-options {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Enhanced Button Styles for Quiz */
+.quiz-option.btn.btn-outline {
+    border-width: 2px;
+    font-weight: 500;
+}
+
+.quiz-option.btn.btn-outline:hover {
+    font-weight: 500;
+}
+
+/* Loading State for Quiz */
+.quiz-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #666;
+}
+
+.quiz-loading i {
+    font-size: 2rem;
+    color: #6552D0;
+    margin-bottom: 1rem;
+}
+
+/* Success State Styling */
+.quiz-success {
+    color: #28a745;
+}
+
+.quiz-success i {
+    color: #28a745;
+}
+
+/* Enhanced Card Header for Quiz */
+#streamQuizCard .card-header {
+    background: linear-gradient(135deg, #6552D0, #8b7ed8);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+#streamQuizCard .card-header i {
+    color: white;
+}
+
+#streamQuizCard .card-header h3 {
+    color: white;
+}
+
+/* Quiz Intro Styling */
+#quizIntro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Enhanced Start Button */
+#startQuizBtn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 200px;
+    background: linear-gradient(135deg, #6552D0, #8b7ed8);
+    border: none;
+    box-shadow: 0 4px 15px rgba(101, 82, 208, 0.3);
+    transition: all 0.3s ease;
+}
+
+#startQuizBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(101, 82, 208, 0.4);
+    background: linear-gradient(135deg, #5a47c7, #7d6fd5);
+}
+
+#startQuizBtn:active {
+    transform: translateY(0);
+}
+
+/* Question Counter Styling */
+.quiz-result h4 {
+    color: #6552D0;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
