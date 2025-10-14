@@ -1,0 +1,524 @@
+{
+  "scholarships": [
+    {
+      "id": "ntse-guj-2025",
+      "name": "NTSE Gujarat State Scholarship",
+      "states": ["Gujarat"],
+      "provider": "Government of Gujarat",
+      "amount": "₹1,25,000/year",
+      "eligibility": "Class 10 students with 60% in Class 9",
+      "deadline": "2025-11-15",
+      "url": "https://ntsegujarat.gov.in/"
+    },
+    {
+      "id": "kvpy-mah-2025",
+      "name": "KVPY Fellowship - Maharashtra",
+      "states": ["Maharashtra"],
+      "provider": "DST, Govt. of India",
+      "amount": "₹80,000/year",
+      "eligibility": "Class 11 & 12 Science students",
+      "deadline": "2025-10-31",
+      "url": "https://kvpy.iisc.ac.in/"
+    },
+    {
+      "id": "pmsss-pan-2025",
+      "name": "Prime Minister's Special Scholarship Scheme",
+      "states": ["Gujarat","Maharashtra","Karnataka","Delhi","Punjab","Haryana","Uttar Pradesh","West Bengal","Tamil Nadu","Kerala","Rajasthan","Andhra Pradesh","Himachal Pradesh"],
+      "provider": "AICTE",
+      "amount": "Up to ₹1,00,000/year",
+      "eligibility": "Class 12 pass, income criteria apply",
+      "deadline": "2025-12-20",
+      "url": "https://aicte-india.org/"
+    },
+    {
+      "id": "mahadbt-ug-2025",
+      "name": "MahaDBT Post Matric Scholarship",
+      "states": ["Maharashtra"],
+      "provider": "Govt. of Maharashtra",
+      "amount": "Tuition fee waiver (as per scheme)",
+      "eligibility": "Domicile of Maharashtra; post-matric students",
+      "deadline": "2025-11-30",
+      "url": "https://mahadbt.maharashtra.gov.in/"
+    },
+    {
+      "id": "ap-pre-matric-2025",
+      "name": "Pre-Matric Scholarship for SC/ST/BC - Andhra Pradesh",
+      "states": ["Andhra Pradesh"],
+      "provider": "Government of Andhra Pradesh",
+      "amount": "Financial assistance for school fees",
+      "eligibility": "SC/ST/BC students studying in government schools",
+      "deadline": "2025-10-31",
+      "url": "https://jnanabhumi.ap.gov.in"
+    },
+    {
+      "id": "jagananna-vidya-deevena-2025",
+      "name": "Jagananna Vidya Deevena Scheme",
+      "states": ["Andhra Pradesh"],
+      "provider": "Government of Andhra Pradesh",
+      "amount": "Full fee reimbursement",
+      "eligibility": "Post-matric students from eligible categories",
+      "deadline": "2025-11-15",
+      "url": "https://jnanabhumi.ap.gov.in"
+    },
+    {
+      "id": "ambedkar-overseas-vidyanidhi-2025",
+      "name": "Ambedkar Overseas Vidyanidhi Scheme",
+      "states": ["Andhra Pradesh"],
+      "provider": "Government of Andhra Pradesh",
+      "amount": "Up to ₹20,00,000",
+      "eligibility": "SC/ST students for overseas studies",
+      "deadline": "2025-12-31",
+      "url": "https://jnanabhumi.ap.gov.in"
+    },
+    {
+      "id": "svmcm-scholarship-2025",
+      "name": "Swami Vivekananda Merit-cum-Means Scholarship",
+      "states": ["West Bengal"],
+      "provider": "Government of West Bengal",
+      "amount": "₹1,000 to ₹5,000/year",
+      "eligibility": "Class 11 to PhD level, family income below ₹2.5 lakh",
+      "deadline": "2025-12-31",
+      "url": "https://svmcm.wbhed.gov.in"
+    },
+    {
+      "id": "kanyashree-prakalpa-2025",
+      "name": "Kanyashree Prakalpa",
+      "states": ["West Bengal"],
+      "provider": "Government of West Bengal",
+      "amount": "₹1,000 annually + ₹25,000 one-time",
+      "eligibility": "Girl students aged 13-18 years",
+      "deadline": "2025-05-31",
+      "url": "https://wbkanyashree.gov.in"
+    },
+    {
+      "id": "nabanna-scholarship-2025",
+      "name": "Nabanna Scholarship",
+      "states": ["West Bengal"],
+      "provider": "Government of West Bengal",
+      "amount": "₹1,500 to ₹3,000/year",
+      "eligibility": "50-60% marks in qualifying exam, income below ₹1.2 lakh",
+      "deadline": "Open year-round",
+      "url": "https://cmrf.wb.gov.in"
+    },
+    {
+      "id": "karnataka-post-matric-2025",
+      "name": "Post-Matric Scholarship for SC/ST/OBC - Karnataka",
+      "states": ["Karnataka"],
+      "provider": "Government of Karnataka",
+      "amount": "₹300 to ₹1,200/month",
+      "eligibility": "SC/ST/OBC students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://ssp.karnataka.gov.in"
+    },
+    {
+      "id": "prabhuddha-overseas-2025",
+      "name": "Prabhuddha Overseas Scholarship",
+      "states": ["Karnataka"],
+      "provider": "Government of Karnataka",
+      "amount": "Up to ₹20,00,000",
+      "eligibility": "SC/ST students for overseas studies",
+      "deadline": "2025-11-30",
+      "url": "https://ssp.karnataka.gov.in"
+    },
+    {
+      "id": "punjab-post-matric-sc-2025",
+      "name": "Post Matric Scholarship for SC Students - Punjab",
+      "states": ["Punjab"],
+      "provider": "SC/BC Welfare Department, Punjab",
+      "amount": "Tuition fee waiver + maintenance allowance",
+      "eligibility": "SC students pursuing post-matric courses",
+      "deadline": "2025-11-30",
+      "url": "https://scholarships.punjab.gov.in"
+    },
+    {
+      "id": "cm-scholarship-punjab-2025",
+      "name": "Chief Minister Scholarship Scheme - Punjab",
+      "states": ["Punjab"],
+      "provider": "Department of Technical Education, Punjab",
+      "amount": "₹15,000 to ₹20,000/year",
+      "eligibility": "Technical course students with merit",
+      "deadline": "2025-07-31",
+      "url": "https://scholarships.punjab.gov.in"
+    },
+    {
+      "id": "dr-ambedkar-medhavi-hp-2025",
+      "name": "Dr. Ambedkar Medhavi Chhatravriti Yojana",
+      "states": ["Himachal Pradesh"],
+      "provider": "Government of Himachal Pradesh",
+      "amount": "₹10,000/year",
+      "eligibility": "SC/OBC students with 72% marks in Class 10",
+      "deadline": "2025-08-30",
+      "url": "https://hpepass.cgg.gov.in"
+    },
+    {
+      "id": "swami-vivekanand-utkrisht-hp-2025",
+      "name": "Swami Vivekanand Utkrisht Chhatravriti Yojana",
+      "states": ["Himachal Pradesh"],
+      "provider": "Government of Himachal Pradesh",
+      "amount": "₹10,000/year",
+      "eligibility": "General category students with 77% marks in Class 10",
+      "deadline": "2025-08-30",
+      "url": "https://hpepass.cgg.gov.in"
+    },
+    {
+      "id": "maharishi-balmiki-hp-2025",
+      "name": "Maharishi Balmiki Chhatravriti Yojana",
+      "states": ["Himachal Pradesh"],
+      "provider": "Government of Himachal Pradesh",
+      "amount": "₹9,000/year",
+      "eligibility": "Girl students from Balmiki families for college education",
+      "deadline": "2025-08-30",
+      "url": "https://hpepass.cgg.gov.in"
+    },
+    {
+      "id": "up-pre-matric-2025",
+      "name": "UP Pre-Matric Scholarship",
+      "states": ["Uttar Pradesh"],
+      "provider": "Government of Uttar Pradesh",
+      "amount": "₹600 to ₹1,200/month",
+      "eligibility": "SC/ST/OBC students in Class 9-10",
+      "deadline": "2025-12-14",
+      "url": "https://scholarship.up.gov.in"
+    },
+    {
+      "id": "up-post-matric-2025",
+      "name": "UP Post-Matric Scholarship",
+      "states": ["Uttar Pradesh"],
+      "provider": "Government of Uttar Pradesh",
+      "amount": "Up to ₹1,200/month",
+      "eligibility": "Post-matric students from eligible categories",
+      "deadline": "2025-12-14",
+      "url": "https://scholarship.up.gov.in"
+    },
+    {
+      "id": "tn-post-matric-bcmbc-2025",
+      "name": "Post-Matric Scholarship for BC/MBC/DNC - Tamil Nadu",
+      "states": ["Tamil Nadu"],
+      "provider": "Government of Tamil Nadu",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "BC/MBC/DNC students pursuing post-matric courses",
+      "deadline": "2025-11-30",
+      "url": "https://bcmbcmw.tn.gov.in"
+    },
+    {
+      "id": "tn-overseas-scholarship-2025",
+      "name": "Overseas Scholarship for SC/ST - Tamil Nadu",
+      "states": ["Tamil Nadu"],
+      "provider": "Adi Dravidar Welfare Department, Tamil Nadu",
+      "amount": "₹36,00,000/year (full), ₹24,00,000/year (partial)",
+      "eligibility": "SC/ST students for overseas postgraduate studies",
+      "deadline": "2025-04-30",
+      "url": "https://www.tnadw.in"
+    },
+    {
+      "id": "chief-minister-merit-award-tn-2025",
+      "name": "Chief Minister's Merit Award - Tamil Nadu",
+      "states": ["Tamil Nadu"],
+      "provider": "Government of Tamil Nadu",
+      "amount": "₹3,000/year for 5 years",
+      "eligibility": "Top 1000 boys and 1000 girls in Class 12 from SC/ST communities",
+      "deadline": "2025-12-31",
+      "url": "https://www.tnadw.in"
+    },
+    {
+      "id": "prof-joseph-mundassery-2025",
+      "name": "Prof. Joseph Mundassery Scholarship Award",
+      "states": ["Kerala"],
+      "provider": "Department of Minority Welfare, Kerala",
+      "amount": "₹10,000 to ₹15,000/year",
+      "eligibility": "Minority community students with 80% marks in UG/75% in PG",
+      "deadline": "2025-01-07",
+      "url": "https://dcescholarship.kerala.gov.in"
+    },
+    {
+      "id": "ch-muhammedkoya-2025",
+      "name": "C H Muhammedkoya Scholarship",
+      "states": ["Kerala"],
+      "provider": "Department of Minority Welfare, Kerala",
+      "amount": "₹5,000 to ₹7,000/year",
+      "eligibility": "Female students from minority communities",
+      "deadline": "2025-01-07",
+      "url": "https://dcescholarship.kerala.gov.in"
+    },
+    {
+      "id": "kerala-state-higher-education-2025",
+      "name": "Kerala State Higher Education Council Scholarship",
+      "states": ["Kerala"],
+      "provider": "Kerala State Higher Education Council",
+      "amount": "₹5,000 to ₹10,000/year",
+      "eligibility": "First-year degree students in govt/aided colleges",
+      "deadline": "2025-07-31",
+      "url": "https://dcescholarship.kerala.gov.in"
+    },
+    {
+      "id": "raj-post-matric-2025",
+      "name": "Post-Matric Scholarship - Rajasthan",
+      "states": ["Rajasthan"],
+      "provider": "Social Justice and Empowerment Department, Rajasthan",
+      "amount": "₹500 to ₹1,000/month",
+      "eligibility": "SC/ST/OBC/EBC students pursuing post-matric courses",
+      "deadline": "2025-05-31",
+      "url": "https://scholarship.rajasthan.gov.in"
+    },
+    {
+      "id": "cm-higher-education-raj-2025",
+      "name": "Chief Minister's Higher Education Scholarship",
+      "states": ["Rajasthan"],
+      "provider": "Department of College Education, Rajasthan",
+      "amount": "₹5,000/year (₹10,000 for disabled)",
+      "eligibility": "Class 12 pass with 60% marks, top 1 lakh students",
+      "deadline": "2025-08-31",
+      "url": "https://scholarship.rajasthan.gov.in"
+    },
+    {
+      "id": "rajiv-gandhi-scholarship-raj-2025",
+      "name": "Rajiv Gandhi Scholarship For Academic Excellence",
+      "states": ["Rajasthan"],
+      "provider": "Government of Rajasthan",
+      "amount": "Full funding for overseas studies",
+      "eligibility": "Students for studies in top 150 QS universities",
+      "deadline": "2025-06-30",
+      "url": "https://scholarship.rajasthan.gov.in"
+    },
+    {
+      "id": "delhi-post-matric-2025",
+      "name": "Post-Matric Scholarship for SC/ST - Delhi",
+      "states": ["Delhi"],
+      "provider": "Government of NCT of Delhi",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://edistrict.delhigovt.nic.in"
+    },
+    {
+      "id": "haryana-post-matric-2025",
+      "name": "Post Matric Scholarship - Haryana",
+      "states": ["Haryana"],
+      "provider": "Department of Social Justice and Empowerment, Haryana",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "De-notified, nomadic and semi-nomadic community students",
+      "deadline": "2025-12-31",
+      "url": "https://haryanascbc.gov.in"
+    },
+    {
+      "id": "odisha-post-matric-2025",
+      "name": "Post-Matric Scholarship for SC/ST - Odisha",
+      "states": ["Odisha"],
+      "provider": "Government of Odisha",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://scholarship.odisha.gov.in"
+    },
+    {
+      "id": "telangana-post-matric-2025",
+      "name": "Post-Matric Scholarship - Telangana",
+      "states": ["Telangana"],
+      "provider": "Government of Telangana",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST/BC students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://telanganaepass.cgg.gov.in"
+    },
+    {
+      "id": "assam-post-matric-2025",
+      "name": "Post-Matric Scholarship for SC/ST - Assam",
+      "states": ["Assam"],
+      "provider": "Government of Assam",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://scholarship.assam.gov.in"
+    },
+    {
+      "id": "mp-post-matric-2025",
+      "name": "Post-Matric Scholarship - Madhya Pradesh",
+      "states": ["Madhya Pradesh"],
+      "provider": "Government of Madhya Pradesh",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST/OBC students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://scholarshipportal.mp.nic.in"
+    },
+    {
+      "id": "bihar-post-matric-2025",
+      "name": "Post-Matric Scholarship for SC/ST/OBC - Bihar",
+      "states": ["Bihar"],
+      "provider": "Government of Bihar",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST/OBC students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://medhasoft.bih.nic.in"
+    },
+    {
+      "id": "jharkhand-post-matric-2025",
+      "name": "Post-Matric Scholarship - Jharkhand",
+      "states": ["Jharkhand"],
+      "provider": "Government of Jharkhand",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://ekalyan.cgg.gov.in"
+    },
+    {
+      "id": "chhattisgarh-post-matric-2025",
+      "name": "Post-Matric Scholarship - Chhattisgarh",
+      "states": ["Chhattisgarh"],
+      "provider": "Government of Chhattisgarh",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST/OBC students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://scholarshipcg.nic.in"
+    },
+    {
+      "id": "goa-merit-scholarship-2025",
+      "name": "Merit Scholarship - Goa",
+      "states": ["Goa"],
+      "provider": "Government of Goa",
+      "amount": "₹2,000 to ₹5,000/year",
+      "eligibility": "Meritorious students from economically weaker sections",
+      "deadline": "2025-08-31",
+      "url": "https://goaonline.gov.in"
+    },
+    {
+      "id": "manipur-post-matric-2025",
+      "name": "Post-Matric Scholarship - Manipur",
+      "states": ["Manipur"],
+      "provider": "Government of Manipur",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://scholarship.manipur.gov.in"
+    },
+    {
+      "id": "nagaland-post-matric-2025",
+      "name": "Post-Matric Scholarship for ST - Nagaland",
+      "states": ["Nagaland"],
+      "provider": "Government of Nagaland",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://nagaland.gov.in"
+    },
+    {
+      "id": "mizoram-post-matric-2025",
+      "name": "Post-Matric Scholarship for ST - Mizoram",
+      "states": ["Mizoram"],
+      "provider": "Government of Mizoram",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://mizoram.gov.in"
+    },
+    {
+      "id": "tripura-post-matric-2025",
+      "name": "Post-Matric Scholarship - Tripura",
+      "states": ["Tripura"],
+      "provider": "Government of Tripura",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://tripura.gov.in"
+    },
+    {
+      "id": "arunachal-post-matric-2025",
+      "name": "Post-Matric Scholarship for ST - Arunachal Pradesh",
+      "states": ["Arunachal Pradesh"],
+      "provider": "Government of Arunachal Pradesh",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://arunachal.nic.in"
+    },
+    {
+      "id": "meghalaya-post-matric-2025",
+      "name": "Post-Matric Scholarship for ST - Meghalaya",
+      "states": ["Meghalaya"],
+      "provider": "Government of Meghalaya",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://meghalaya.gov.in"
+    },
+    {
+      "id": "sikkim-post-matric-2025",
+      "name": "Post-Matric Scholarship - Sikkim",
+      "states": ["Sikkim"],
+      "provider": "Government of Sikkim",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://sikkim.gov.in"
+    },
+    {
+      "id": "jk-post-matric-2025",
+      "name": "Post-Matric Scholarship - Jammu & Kashmir",
+      "states": ["Jammu and Kashmir"],
+      "provider": "Government of J&K",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://jk.gov.in"
+    },
+    {
+      "id": "ladakh-post-matric-2025",
+      "name": "Post-Matric Scholarship - Ladakh",
+      "states": ["Ladakh"],
+      "provider": "Government of Ladakh",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://ladakh.nic.in"
+    },
+    {
+      "id": "chandigarh-post-matric-2025",
+      "name": "Post-Matric Scholarship - Chandigarh",
+      "states": ["Chandigarh"],
+      "provider": "UT Administration of Chandigarh",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://chandigarh.gov.in"
+    },
+    {
+      "id": "puducherry-post-matric-2025",
+      "name": "Post-Matric Scholarship - Puducherry",
+      "states": ["Puducherry"],
+      "provider": "Government of Puducherry",
+      "amount": "Fee reimbursement + maintenance allowance",
+      "eligibility": "SC/ST students pursuing post-matric courses",
+      "deadline": "2025-12-31",
+      "url": "https://py.gov.in"
+    },
+    {
+      "id": "inspire-scholarship-2025",
+      "name": "INSPIRE Scholarship for Higher Education",
+      "states": ["All States"],
+      "provider": "Department of Science & Technology, Govt. of India",
+      "amount": "₹80,000/year for 5 years",
+      "eligibility": "Top 1% students in Class 12 pursuing basic sciences",
+      "deadline": "2025-07-31",
+      "url": "https://online-inspire.gov.in"
+    },
+    {
+      "id": "central-sector-scholarship-2025",
+      "name": "Central Sector Scheme of Scholarships",
+      "states": ["All States"],
+      "provider": "Ministry of Education, Govt. of India",
+      "amount": "₹12,000 (UG), ₹20,000 (PG) per year",
+      "eligibility": "80% marks in Class 12, family income below ₹4.5 lakh",
+      "deadline": "2025-10-31",
+      "url": "https://scholarships.gov.in"
+    },
+    {
+      "id": "ishan-uday-scholarship-2025",
+      "name": "Ishan Uday Scholarship",
+      "states": ["Arunachal Pradesh", "Assam", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Sikkim", "Tripura"],
+      "provider": "UGC, Govt. of India",
+      "amount": "₹5,400 to ₹7,800/month",
+      "eligibility": "Students from North Eastern Region for studies outside NE",
+      "deadline": "2025-09-30",
+      "url": "https://scholarships.gov.in"
+    }
+  ]
+}

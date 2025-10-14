@@ -27,13 +27,38 @@
 <section class="youtube-video-search">
   <h2>Search YouTube Resources</h2>
   <div class="youtube-search-bar">
-    <input type="text" id="youtubeQuery" placeholder="Enter Problems you are Facin">
+    <input type="text" id="youtubeQuery" placeholder="Enter Problems you are Facing">
     <button class="btn btn-primary" id="youtubeSearchBtn">
       <i class="fas fa-search"></i> Search
     </button>
   </div>
   <div id="youtubeResults" class="youtube-results-grid"></div>
 </section>
+
+
+
+
+<section class="resource-category" id="local-scholarship-finder">
+  <h2><i class="fas fa-map-marker-alt"></i> Local Scholarship Finder</h2>
+  <div class="finder-controls">
+    <label for="stateSelect"><strong>Select your state</strong></label>
+    <div class="finder-row">
+      <select id="stateSelect" class="input">
+        <option value="">Loading states...</option>
+      </select>
+      <input id="scholarshipSearch" class="input" type="text" placeholder="Keyword (e.g., NTSE, need-based)" />
+      <button id="findScholarshipsBtn" class="btn btn-primary">
+        <i class="fas fa-search"></i> Find Scholarships
+      </button>
+    </div>
+  </div>
+  <div id="localScholarshipStatus" class="status-text"></div>
+  <div id="localScholarshipResults" class="scholarship-list"></div>
+</section>
+
+
+
+            <
 
        
         <!-- Resource Categories -->
@@ -116,7 +141,7 @@
                                 <span><i class="fas fa-user"></i> Dr. Priya Sharma</span>
                                 <span><i class="fas fa-calendar"></i> Oct 8, 2025</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readArticle('engineering-branches-2025')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://www.niet.co.in/blog/future-of-engineering-in-india-2025-top-branches-skills--career-trends','_blank')">
                                 Read Article
                             </button>
                         </div>
@@ -134,7 +159,7 @@
                                 <span><i class="fas fa-user"></i> Rajesh Kumar</span>
                                 <span><i class="fas fa-calendar"></i> Oct 5, 2025</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readArticle('time-management-boards')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://www.hindustantimes.com/brandstories/exam-content/importance-of-effective-time-management-skills-for-cbse-board-exams.php','_blank')">
                                 Read Article
                             </button>
                         </div>
@@ -152,7 +177,7 @@
                                 <span><i class="fas fa-user"></i> Anita Verma</span>
                                 <span><i class="fas fa-calendar"></i> Oct 1, 2025</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readArticle('choose-right-college')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://www.hindustantimes.com/brandstories/exam-content/importance-of-effective-time-management-skills-for-cbse-board-exams.php','_blank')">
                                 Read Article
                             </button>
                         </div>
@@ -175,7 +200,7 @@
                                 <span><i class="fas fa-file-alt"></i> 250 pages</span>
                                 <span><i class="fas fa-download"></i> 15K downloads</span>
                             </div>
-                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('jee-physics-guide')">
+                            <button class="btn btn-sm btn-secondary" onclick="window.open('https://www.scribd.com/document/508765829/Physics-Complete-Guide-for-the-IIT-JEE-Main','_blank')"">
                                 <i class="fas fa-download"></i> Download PDF
                             </button>
                         </div>
@@ -192,7 +217,7 @@
                                 <span><i class="fas fa-file-alt"></i> 80 pages</span>
                                 <span><i class="fas fa-download"></i> 22K downloads</span>
                             </div>
-                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('math-formula-handbook')">
+                            <button class="btn btn-sm btn-secondary" onclick="window.open('https://homepage.ntu.edu.tw/~wttsai/MathModel/Mathematical%20Formula%20Handbook.pdf','_blank')">
                                 <i class="fas fa-download"></i> Download PDF
                             </button>
                         </div>
@@ -209,7 +234,7 @@
                                 <span><i class="fas fa-file-alt"></i> 180 pages</span>
                                 <span><i class="fas fa-download"></i> 18K downloads</span>
                             </div>
-                            <button class="btn btn-sm btn-secondary" onclick="downloadGuide('neet-biology-notes')">
+                            <button class="btn btn-sm btn-secondary" onclick="window.open('https://topperseducations.co.in/neet-biology-short-notes/','_blank')">
                                 <i class="fas fa-download"></i> Download PDF
                             </button>
                         </div>
@@ -232,7 +257,7 @@
                                 <span class="story-achievement">IIT Delhi, Computer Science</span>
                                 <span class="story-year">Batch 2024</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readStory('rahul-iit-journey')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://www.news18.com/education-career/from-iit-dropout-to-owner-of-rs-286-crore-business-know-rahul-rais-success-story-9124587.html','_blank')">
                                 Read Story
                             </button>
                         </div>
@@ -249,7 +274,7 @@
                                 <span class="story-achievement">AIIMS Delhi, MBBS</span>
                                 <span class="story-year">Batch 2023</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readStory('priya-neet-success')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://catholicconnect.in/news/two-girls-from-manipurs-relief-camps-clear-neet-defying-all-odds','_blank')">
                                 Read Story
                             </button>
                         </div>
@@ -266,7 +291,7 @@
                                 <span class="story-achievement">IAS, UPSC 2023</span>
                                 <span class="story-year">Rank 45</span>
                             </div>
-                            <button class="btn btn-sm btn-outline" onclick="readStory('amit-ias-success')">
+                            <button class="btn btn-sm btn-outline" onclick="window.open('https://www.cheggindia.com/career-guidance/arts-stream-jobs/','_blank')">
                                 Read Story
                             </button>
                         </div>
@@ -274,51 +299,7 @@
                 </div>
             </div>
 
-            <!-- Scholarship Information -->
-            <div class="resource-category" id="scholarships">
-                <h2><i class="fas fa-graduation-cap"></i> Scholarship Information</h2>
-                <div class="scholarship-list">
-                    <div class="scholarship-card">
-                        <div class="scholarship-header">
-                            <h3>National Talent Search Examination (NTSE)</h3>
-                            <span class="scholarship-amount">₹1,25,000/year</span>
-                        </div>
-                        <div class="scholarship-details">
-                            <p><strong>Eligibility:</strong> Class 10 students with 60% in Class 9</p>
-                            <p><strong>Application Deadline:</strong> November 15, 2024</p>
-                            <p><strong>Benefits:</strong> Scholarship throughout higher education</p>
-                        </div>
-                        <div class="scholarship-actions">
-                            <button class="btn btn-sm btn-primary" onclick="applyScholarship('ntse')">
-                                Apply Now
-                            </button>
-                            <button class="btn btn-sm btn-outline" onclick="viewScholarshipDetails('ntse')">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
 
-                    <div class="scholarship-card">
-                        <div class="scholarship-header">
-                            <h3>Kishore Vaigyanik Protsahan Yojana (KVPY)</h3>
-                            <span class="scholarship-amount">₹80,000/year</span>
-                        </div>
-                        <div class="scholarship-details">
-                            <p><strong>Eligibility:</strong> Class 11 & 12 Science students</p>
-                            <p><strong>Application Deadline:</strong> October 31, 2024</p>
-                            <p><strong>Benefits:</strong> Fellowship for research careers</p>
-                        </div>
-                        <div class="scholarship-actions">
-                            <button class="btn btn-sm btn-primary" onclick="applyScholarship('kvpy')">
-                                Apply Now
-                            </button>
-                            <button class="btn btn-sm btn-outline" onclick="viewScholarshipDetails('kvpy')">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
     </div>
 

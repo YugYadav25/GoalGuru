@@ -509,3 +509,107 @@ function viewScholarshipDetails(scholarshipId) {
 }
 
 console.log('Resource Hub JavaScript loaded');
+
+(() => {
+  const API_BASE = (window.SCHOLAR_API_BASE || "http://localhost:4000");
+
+  function el(id) { return document.getElementById(id); }
+
+  async function fetchJSON(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+    return res.json();
+  }
+
+  function renderStatus(msg, isError = false) {
+    const box = el("localScholarshipStatus");
+    if (!box) return;
+    box.textContent = msg || "";
+    box.style.color = isError ? "#b30000" : "#666";
+  }
+
+  function renderScholarshipCard(s) {
+    const div = document.createElement("div");
+    div.className = "scholarship-card";
+    div.innerHTML = `
+      <div class="scholarship-header">
+        <h3>${s.name}</h3>
+        <span class="scholarship-amount">${s.amount || ""}</span>
+      </div>
+      <div class="scholarship-details">
+        <p><strong>Provider:</strong> ${s.provider || "-"}</p>
+        <p><strong>States:</strong> ${(s.states || []).join(", ") || "-"}</p>
+        <p><strong>Eligibility:</strong> ${s.eligibility || "-"}</p>
+        <p><strong>Application Deadline:</strong> ${formatDate(s.deadline)}</p>
+      </div>
+      <div class="scholarship-actions">
+        <button class="btn btn-sm btn-primary" onclick="window.open('${s.url || "#"}','_blank')">Apply Now</button>
+        <button class="btn btn-sm btn-outline" onclick="alert('More details coming soon')">View Details</button>
+      </div>
+    `;
+    return div;
+  }
+
+  function formatDate(iso) {
+    if (!iso) return "-";
+    const d = new Date(iso);
+    if (isNaN(d)) return iso;
+    return d.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
+  }
+
+  async function loadStates() {
+    try {
+      renderStatus("Loading states...");
+      const data = await fetchJSON(`${API_BASE}/api/states`);
+      const select = el("stateSelect");
+      select.innerHTML = `<option value="">Select state</option>`;
+      data.states.forEach(st => {
+        const opt = document.createElement("option");
+        opt.value = st;
+        opt.textContent = st;
+        select.appendChild(opt);
+      });
+      renderStatus("");
+    } catch (e) {
+      renderStatus("Could not load states. Is the backend running?", true);
+      const select = el("stateSelect");
+      if (select) select.innerHTML = `<option value="">Unavailable</option>`;
+    }
+  }
+
+  async function findScholarships() {
+    const state = el("stateSelect")?.value || "";
+    const q = el("scholarshipSearch")?.value || "";
+    const params = new URLSearchParams();
+    if (state) params.append("state", state);
+    if (q.trim()) params.append("q", q.trim());
+
+    const resultsBox = el("localScholarshipResults");
+    resultsBox.innerHTML = "";
+    renderStatus("Searching scholarships...");
+
+    try {
+      const data = await fetchJSON(`${API_BASE}/api/scholarships?` + params.toString());
+      renderStatus(data.count ? `Found ${data.count} scholarship(s)` : "No scholarships found for the selected filters.");
+      if (data.scholarships && data.scholarships.length) {
+        data.scholarships.forEach(s => resultsBox.appendChild(renderScholarshipCard(s)));
+      }
+    } catch (e) {
+      console.error(e);
+      renderStatus("Error fetching scholarships. Please try again.", true);
+    }
+  }
+
+  function wireEvents() {
+    el("findScholarshipsBtn")?.addEventListener("click", findScholarships);
+    el("stateSelect")?.addEventListener("change", findScholarships);
+    el("scholarshipSearch")?.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") findScholarships();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await loadStates();
+    wireEvents();
+  });
+})();
