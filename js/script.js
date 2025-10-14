@@ -620,7 +620,7 @@ function showResult() {
             <div class="result-header">
                 <i class="${icon}" style="font-size: 3rem; color: #6552D0; margin-bottom: 1rem;"></i>
                 <h3>Your Recommended Stream:</h3>
-                <h2 style="color:white; margin: 0.5rem 0;">${streamName}</h2>
+                <h2 style="color:#white; margin: 0.5rem 0;">${streamName}</h2>
             </div>
             <div class="result-description">
                 <p>${description}</p>
@@ -839,3 +839,60 @@ document.addEventListener('keydown', function(e) {
 });
 
 console.log('GoalGuru JavaScript loaded successfully');
+
+
+// --- YOUTUBE API CONFIGURATION ---
+const YOUTUBE_API_KEY = 'AIzaSyDk-rREFXX9ZwZzweJOcge-1KII01beBSs'; // Secure it appropriately in production
+
+const youtubeSearchBtn = document.getElementById('youtubeSearchBtn');
+const youtubeQueryInput = document.getElementById('youtubeQuery');
+const youtubeResultsDiv = document.getElementById('youtubeResults');
+
+if (youtubeSearchBtn) {
+    youtubeSearchBtn.addEventListener('click', youtubeSearch);
+}
+
+if (youtubeQueryInput) {
+    youtubeQueryInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') youtubeSearch();
+    });
+}
+
+async function youtubeSearch() {
+    const query = youtubeQueryInput.value.trim();
+    if (!query) return;
+
+    youtubeResultsDiv.innerHTML = "<p>Loading videos...</p>";
+
+    const endpoint = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=8&order=date&q=${encodeURIComponent(query)}&key=${YOUTUBE_API_KEY}`;
+
+    try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        showYoutubeResults(data.items || []);
+    } catch (error) {
+        youtubeResultsDiv.innerHTML = `<p class="error">An error occurred fetching YouTube videos.</p>`;
+    }
+}
+
+function showYoutubeResults(videos) {
+    if (videos.length === 0) {
+        youtubeResultsDiv.innerHTML = "<p>No videos found. Try a different search.</p>";
+        return;
+    }
+
+    youtubeResultsDiv.innerHTML = videos.map(video => `
+      <div class="youtube-video-card">
+        <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank" rel="noopener">
+          <img class="youtube-thumbnail" src="${video.snippet.thumbnails.medium.url}" alt="Video Thumbnail">
+        </a>
+        <div class="youtube-info">
+          <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank" rel="noopener">
+            <h4 class="youtube-title">${video.snippet.title}</h4>
+          </a>
+          <p class="youtube-channel">${video.snippet.channelTitle}</p>
+        </div>
+      </div>
+    `).join('');
+}
+

@@ -7,45 +7,35 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="shortcut icon" href="assets/goal_guru.jpg" type="image/x-icon">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-compass"></i>
+            <h1> GoalGuru</h1>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="javascript:history.back()">Back to Dashboard</a>
+            <button class="btn btn-outline" onclick="logout()">Logout</button>
+        </div>
+    </nav>
     <div class="container">
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-brand">
-                <i class="fas fa-compass"></i>
-                <h1> GoalGuru</h1>
-            </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="javascript:history.back()">Back to Dashboard</a>
-                <button class="btn btn-outline" onclick="logout()">Logout</button>
-            </div>
-        </nav>
 
-        <!-- Resource Hub Header -->
-        <section class="resource-header">
-            <div class="section-header">
-                <h1>Resource Hub</h1>
-                <p>Comprehensive learning materials for students and parents</p>
-            </div>
+        <!-- YouTube Video Search Section -->
+<section class="youtube-video-search">
+  <h2>Search YouTube Resources</h2>
+  <div class="youtube-search-bar">
+    <input type="text" id="youtubeQuery" placeholder="Enter Problems you are Facin">
+    <button class="btn btn-primary" id="youtubeSearchBtn">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+  <div id="youtubeResults" class="youtube-results-grid"></div>
+</section>
 
-            <!-- Filter Options -->
-            <div class="resource-filters">
-                <button class="filter-btn active" onclick="filterResources('all')">All Resources</button>
-                <button class="filter-btn" onclick="filterResources('videos')">Videos</button>
-                <button class="filter-btn" onclick="filterResources('articles')">Articles</button>
-                <button class="filter-btn" onclick="filterResources('guides')">Guides</button>
-                <button class="filter-btn" onclick="filterResources('stories')">Success Stories</button>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="search-container">
-                <input type="text" id="resourceSearch" placeholder="Search resources..." onkeyup="searchResources()">
-                <i class="fas fa-search"></i>
-            </div>
-        </section>
-
+       
         <!-- Resource Categories -->
         <section class="resource-content">
             <!-- Video Resources -->
@@ -54,7 +44,8 @@
                 <div class="resource-grid">
                     <div class="resource-card">
                         <div class="resource-thumbnail">
-                            <i class="fas fa-play-circle"></i>
+                            <!-- <img src="assets/confused.jpg" alt=""> -->
+                            <!-- <i class="fas fa-play-circle"></i> -->
                             <span class="duration">15:30</span>
                         </div>
                         <div class="resource-info">
@@ -64,9 +55,10 @@
                                 <span><i class="fas fa-eye"></i> 25K views</span>
                                 <span><i class="fas fa-clock"></i> 2 days ago</span>
                             </div>
-                            <button class="btn btn-sm btn-primary" onclick="watchVideo('stream-selection')">
-                                Watch Now
-                            </button>
+                            <button class="btn btn-sm btn-primary" 
+        onclick="window.open('https://youtu.be/De0Jr59IHQY?si=VGi_aVThjfAXoh11', '_blank')">
+  Watch Now
+</button>
                         </div>
                     </div>
 
