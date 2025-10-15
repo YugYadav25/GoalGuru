@@ -311,6 +311,7 @@ function showNotification(message, type = 'info') {
         animation: slideInRight 0.3s ease;
         max-width: 400px;
     `;
+    
 
     // Add to body
     document.body.appendChild(notification);

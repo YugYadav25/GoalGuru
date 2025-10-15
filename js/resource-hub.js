@@ -613,3 +613,99 @@ console.log('Resource Hub JavaScript loaded');
     wireEvents();
   });
 })();
+
+
+
+
+
+//college finder 
+
+(() => {
+  const API_BASE = window.SCHOLAR_API_BASE || "http://localhost:4000";
+  function el(id) { return document.getElementById(id); }
+  
+  async function fetchJSON(url) { const res = await fetch(url); if (!res.ok) throw new Error(res.status); return res.json(); }
+  
+  // Populate filters
+  async function loadCollegeFilters() {
+    const streams = await fetchJSON(`${API_BASE}/api/college-streams`);
+    const streamSelect = el("collegeStreamSelect");
+    streams.streams.forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s;
+      opt.textContent = s;
+      streamSelect.appendChild(opt);
+    });
+    const locations = await fetchJSON(`${API_BASE}/api/college-locations`);
+    const locationSelect = el("collegeLocationSelect");
+    locations.locations.forEach(l => {
+      const opt = document.createElement("option");
+      opt.value = l;
+      opt.textContent = l;
+      locationSelect.appendChild(opt);
+    });
+  }
+
+  function renderCollegeCard(c) {
+    const div = document.createElement("div");
+    div.className = "college-card";
+    div.innerHTML = `
+      <div class="college-header">
+        <h3>${c.name}</h3>
+        <span style="color:#524baa;font-weight:600;">${c.rating} ★</span>
+      </div>
+      <div class="college-details">
+        <p><strong>Location:</strong> ${c.location}</p>
+        <p><strong>Stream:</strong> ${c.stream}</p>
+        <p><strong>Type:</strong> ${c.type}</p>
+        <p><strong>Annual Fees:</strong> ${c.annualFees}</p>
+        <p><strong>Cutoff:</strong> ${c.cutoff}</p>
+        <p><strong>Placements:</strong> ${c.placements}</p>
+        <p><strong>Established:</strong> ${c.established}</p>
+      </div>
+      <div class="college-actions">
+        <button class="btn btn-sm btn-outline" onclick="window.open('${c.website}','_blank')">Visit Website</button>
+      </div>
+    `;
+    return div;
+  }
+
+  async function findColleges() {
+    const stream = el("collegeStreamSelect")?.value || "All Streams";
+    const location = el("collegeLocationSelect")?.value || "All Locations";
+    const type = el("collegeTypeSelect")?.value || "All Types";
+    const minRating = el("collegeMinRating")?.value || "";
+    const maxFees = el("collegeMaxFees")?.value || "";
+
+    const params = new URLSearchParams();
+    params.append("stream", stream);
+    params.append("location", location);
+    params.append("type", type);
+    if (minRating) params.append("minRating", minRating);
+    if (maxFees) params.append("maxFees", maxFees);
+
+    el("collegeResults").innerHTML = "";
+    el("collegeStatus").textContent = "Searching colleges...";
+    try {
+      const data = await fetchJSON(`${API_BASE}/api/colleges?` + params.toString());
+      el("collegeStatus").textContent = data.count ? `Found ${data.count} college(s)` : "No colleges found for selected filters.";
+      data.colleges?.forEach(c => el("collegeResults").appendChild(renderCollegeCard(c)));
+    } catch {
+      el("collegeStatus").textContent = "Error fetching colleges. Please try again.";
+    }
+  }
+
+  function wireCollegeEvents() {
+    el("findCollegesBtn")?.addEventListener("click", findColleges);
+    el("collegeStreamSelect")?.addEventListener("change", findColleges);
+    el("collegeLocationSelect")?.addEventListener("change", findColleges);
+    el("collegeTypeSelect")?.addEventListener("change", findColleges);
+    el("collegeMinRating")?.addEventListener("change", findColleges);
+    el("collegeMaxFees")?.addEventListener("change", findColleges);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    loadCollegeFilters();
+    wireCollegeEvents();
+  });
+})();

@@ -1,0 +1,30 @@
+{
+  "colleges": [
+    {
+      "id": "iitb",
+      "name": "IIT Bombay",
+      "location": "Mumbai, Maharashtra",
+      "stream": "Engineering",
+      "type": "Government",
+      "annualFees": "₹2,53,000",
+      "cutoff": "JEE Advanced: 1-100 (General)",
+      "placements": "Average: ₹20 LPA, Highest: ₹1.8 Cr",
+      "established": "1958",
+      "website": "https://www.iitb.ac.in/",
+      "rating": 4.9
+    },
+    {
+      "id": "aiims-delhi",
+      "name": "AIIMS Delhi",
+      "location": "New Delhi, Delhi",
+      "stream": "Medical",
+      "type": "Government",
+      "annualFees": "₹1,628",
+      "cutoff": "NEET UG: Top 50",
+      "placements": "Healthcare, Research",
+      "established": "1956",
+      "website": "https://www.aiims.edu/",
+      "rating": 4.8
+    }
+  ]
+}
