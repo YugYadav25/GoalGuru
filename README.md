@@ -1,6 +1,10 @@
 🎯 GoalGuru — Smart Academic & Career Companion
 An interactive platform empowering Class 10th and 12th students (and their parents) to make informed decisions about streams, careers, scholarships, and colleges — all in one place.
 
+<img width="1336" height="632" alt="image" src="https://github.com/user-attachments/assets/b401e81c-6f9b-4a01-9aa3-b42758a92796" />
+
+
+
 🧠 Overview
 GoalGuru simplifies the student journey through:
 
@@ -14,15 +18,26 @@ GoalGuru simplifies the student journey through:
 
 🧭 Career & Subject Mapping – Explore subject relevance, career pathways, and get personalized recommendations.
 
+<img width="1340" height="626" alt="image" src="https://github.com/user-attachments/assets/79392fce-53a9-44ff-ad4e-eedfbe4e518b" />
+
+<img width="1343" height="626" alt="image" src="https://github.com/user-attachments/assets/35abbc72-ea2b-4b22-ae2d-6208a8d27418" />
+
+<img width="1351" height="626" alt="image" src="https://github.com/user-attachments/assets/3edce6f0-681c-4752-8278-b769dcce2172" />
+
+
+
 ⚙️ Tech Stack
+
 Layer	Technologies
-Frontend	HTML, CSS, JavaScript
-Backend	Node.js, Express.js
-Data Storage	JSON (Colleges, Scholarships)
-APIs	YouTube Data API v3 (proxied via backend)
-Environment	dotenv for secret key management
-Version Control	Git, GitHub
-🚀 Key Features
+```
+Frontend:	HTML, CSS, JavaScript
+Backend:	Node.js, Express.js
+Data Storage:	JSON (Colleges, Scholarships)
+APIs:	YouTube Data API v3 (proxied via backend)
+Environment:	dotenv for secret key management
+Version Control:	Git, GitHub
+```
+🚀 Key Features<br><br>
 ✅ Stream Selection Quiz – Interactive quiz with typewriter effect and real-time scoring.
 
 ✅ Scholarship Finder – State filters, keyword search, and dynamic scholarship cards.
@@ -40,7 +55,7 @@ Version Control	Git, GitHub
 ✅ Responsive Design – Optimized for mobile, tablet, and desktop.
 
 🧩 Project Structure
-text
+
 ```
 GOALGURU/
 │
@@ -74,6 +89,7 @@ Phase: Building (October 2025)
 Status: Core features implemented
 
 ✅ Completed
+
 Backend APIs (Scholarship, College, YouTube Proxy)
 
 Frontend UI, Quiz Engine, Search Components
