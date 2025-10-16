@@ -300,24 +300,28 @@ function updateQuickActions() {
 
 // Compare colleges
 function compareColleges() {
+    alert('College comparison tool coming soon!')
      GoalGuru.trackEvent('college', 'compare');
      GoalGuru.showNotification('College comparison tool coming soon!', 'info');
 }
 
 // Cutoff predictor
 function cutoffPredictor() {
+    alert('Cutoff prediction tool coming soon!')
      GoalGuru.trackEvent('tool', 'cutoff-predictor');
      GoalGuru.showNotification('Cutoff prediction tool coming soon!', 'info');
 }
 
 // Admission alerts
 function admissionAlert() {
-     GoalGuru.trackEvent('alert', 'admission');
-     GoalGuru.showNotification('Admission alerts setup coming soon!', 'info');
+    alert('Admission alerts setup coming soon!')
+    GoalGuru.trackEvent('alert', 'admission');
+    GoalGuru.showNotification('Admission alerts setup coming soon!', 'info');
 }
 
 // Counseling info
 function counselingInfo() {
+    alert('Counseling information coming soon!')
      GoalGuru.trackEvent('info', 'counseling');
      GoalGuru.showNotification('Counseling information coming soon!', 'info');
 }

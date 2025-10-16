@@ -842,8 +842,7 @@ document.addEventListener('keydown', function(e) {
 console.log('GoalGuru JavaScript loaded successfully');
 
 
-// --- YOUTUBE API CONFIGURATION ---
-const YOUTUBE_API_KEY = 'AIzaSyDk-rREFXX9ZwZzweJOcge-1KII01beBSs'; // Secure it appropriately in production
+const YOUTUBE_API_KEY = 'YOUR_API_KEY'; // Secure it appropriately in production
 
 const youtubeSearchBtn = document.getElementById('youtubeSearchBtn');
 const youtubeQueryInput = document.getElementById('youtubeQuery');
