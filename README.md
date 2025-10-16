@@ -41,7 +41,7 @@ Version Control	Git, GitHub
 
 🧩 Project Structure
 text
-'''
+```
 GOALGURU/
 │
 ├── backend/
@@ -68,7 +68,7 @@ GOALGURU/
 ├── 12th-dashboard.html         # Dashboard (Class 12)
 ├── parent-dashboard.html       # Dashboard (Parent)
 └── README.md                   # Project documentation
-'''
+```
 📅 Project Timeline
 Phase: Building (October 2025)
 Status: Core features implemented
