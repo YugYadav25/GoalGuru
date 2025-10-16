@@ -1,134 +1,118 @@
-GoalGuru
-An interactive web platform empowering Class 10th and 12th students (and their parents) to make informed decisions about academic streams, career paths, scholarships, and colleges through AI-based assessments, real-time resources, and personalized recommendations.
-<img width="1337" height="625" alt="image" src="https://github.com/user-attachments/assets/0e4e9576-090f-4b4b-ae8b-655d06221543" />
+🎯 GoalGuru — Smart Academic & Career Companion
+
+An interactive platform empowering Class 10th and 12th students (and their parents) to make informed decisions about streams, careers, scholarships, and colleges — all in one place.
+
+<img width="1337" height="625" alt="image" src="https://github.com/user-attachments/assets/97a681a0-fb05-4f27-8d6c-790a1a2ced73" />
+
 
 
 🧠 Overview
-GoalGuru guides users through:
 
-AI-Powered Stream Recommendation
-Psychometric quizzes analyze interests, aptitude, and personality to suggest ideal streams (Science-Maths, Science-Biology, Commerce, Arts).
-<img width="701" height="523" alt="image" src="https://github.com/user-attachments/assets/19750db7-ce67-4c99-8939-8b633c506557" />
+GoalGuru simplifies the student journey through:
 
+🎓 AI-Powered Stream Recommendation – Psychometric quiz to suggest ideal streams based on interests, aptitude, and personality.
 
-Local Scholarship Finder
-Instantly discover government and private scholarships available in your state via a Node.js & Express backend and a searchable JSON database.
+💰 Local Scholarship Finder(All States) – Discover state-wise government and private scholarships using Node.js & Express backend.
 
-Local College Finder
-Filter colleges by stream, location, type, fees, and rating to pinpoint institutions matching your goals and budget.
-<img width="1341" height="629" alt="image" src="https://github.com/user-attachments/assets/b5e29125-3b72-4f74-b725-186ea6b930f3" />
+🏫 College Finder – Filter colleges by stream, location, rating, and fee range using a fast, searchable JSON database.
 
+▶️ YouTube Resource Integration – Search for study resources via YouTube Data API v3 (secured through backend proxy).
 
-YouTube Resource Integration
-Real-time video suggestions for study problems, powered by YouTube Data API v3 through a secure backend proxy.
+🧭 Career & Subject Mapping – Explore subject relevance, career pathways, and personalized recommendations.
 
-Career & Subject Mapping
-Explore detailed career modules, subject relevance, and pathways for every recommended stream.
+<img width="1350" height="623" alt="image" src="https://github.com/user-attachments/assets/893137e4-a47f-478a-8500-6c3984df6172" />
+
+<img width="1357" height="628" alt="image" src="https://github.com/user-attachments/assets/7df1e4e1-10d5-4bf0-8bec-5df04136fcae" />
+
+<img width="1349" height="631" alt="image" src="https://github.com/user-attachments/assets/01d732da-c464-4110-9348-88bf23bd2591" />
+
+<img width="1349" height="631" alt="image" src="https://github.com/user-attachments/assets/d956ba3a-81f9-4a8c-8bed-bac262cfa2ac" />
 
 ⚙️ Tech Stack
-Frontend: HTML, CSS, JavaScript
-
-Backend: Node.js, Express.js
-
-Data Storage: JSON files (scholarships, colleges)
-
-APIs: YouTube Data API v3 (proxied via backend)
-
-Version Control: Git, GitHub
-
-Environment: dotenv for secret management
-
+Layer	Technologies
+Frontend	HTML, CSS, JavaScript
+Backend	Node.js, Express.js
+Data Storage	JSON (colleges, scholarships)
+APIs	YouTube Data API v3 (proxied via backend)
+Environment	dotenv for secret key management
+Version Control	Git, GitHub
 🚀 Features
-AI-powered Quiz for stream selection
 
-Interactive Quiz UI with typewriter effect and smooth scrolling
+✅ Stream Selection Quiz – Engaging quiz with typewriter effect and real-time scoring.
+✅ Scholarship Finder – State filter, keyword search, and dynamic scholarship cards.
+✅ College Finder – Stream & budget filters, instant search, responsive design.
+✅ YouTube Search Modal – Watch learning videos directly from the Resource Hub.
+✅ Authentication UI (WIP) – Signup/Login modals with session-based user state.
+✅ Notification System – Smart pop-ups for success, error, and info messages.
+✅ Analytics Tracking – Client-side event logging.
+✅ Responsive Design – Optimized across mobile, tablet, and desktop.
 
-Local Scholarship Detector
-
-State filter dropdown
-
-Keyword search
-
-Dynamic scholarship cards with apply/view details buttons
-
-Local College Finder
-
-Stream, location, type, rating, and fee range filters
-
-Instant search and responsive college cards
-
-YouTube Search Modal
-
-Search videos from within the Resource Hub
-
-Securely hidden API key via backend proxy
-
-Signup/login modal with session storage
-
-Role selection (10th-student, 12th-student, parent)
-
-Personalized Dashboards (10th, 12th, Parent) [under development]
-
-Notification System for success, error, and info messages
-
-Analytics Tracking (client-side events logged locally)
-
-Responsive Design for all devices
-
-📁 Project Structure
-text
+🧩 Project Structure
 GOALGURU/
 ├── backend/
-│   ├── data.json            # Scholarship data
-│   ├── data-colleges.json   # College data
-│   ├── app.js               # Express app with API routes
-│   ├── server.js            # Server bootstrap
-│   ├── .env                 # Environment variables (not committed)
-│   └── package.json         # Backend dependencies & scripts
+│   ├── data.json               # Scholarship data
+│   ├── data-colleges.json      # College data
+│   ├── app.js                  # Express app with API routes
+│   ├── server.js               # Server bootstrap
+│   ├── .env                    # Environment variables (not committed)
+│   └── package.json            # Backend dependencies & scripts
+│
 ├── css/
-│   └── style.css            # Global and component styles
+│   └── style.css               # Global and component styles
+│
 ├── js/
-│   ├── resource-hub.js      # Scholarship, college, YouTube logic
-│   ├── script.js            # Main UI logic, auth, quiz, notifications
-│   └── other scripts…       # Dashboard & quiz logic
-├── index.html               # Landing page with typewriter effect
-├── resource-hub.html        # Resource Hub: quizzes, finders, videos
-├── college-finder.html      # Dedicated College Finder page
-├── 10th-dashboard.html      # 10th-grade dashboard skeleton
-├── 12th-dashboard.html      # 12th-grade dashboard skeleton
-├── parent-dashboard.html    # Parent dashboard skeleton
-├── role-selection.html      # Role selection page
-└── README.md                # Project documentation
+│   ├── resource-hub.js         # Scholarship, college, YouTube logic
+│   ├── script.js               # Main UI logic, quiz, notifications
+│   └── other scripts…          # Dashboard & quiz logic
+│
+├── index.html                  # Landing page with typewriter effect
+├── resource-hub.html           # Resource Hub: quizzes, finders, videos
+├── college-finder.html         # Dedicated College Finder page
+├── 10th-dashboard.html         # Dashboard (Class 10)
+├── 12th-dashboard.html         # Dashboard (Class 12)
+├── parent-dashboard.html       # Dashboard (Parent)
+├── role-selection.html         # Role selection screen
+└── README.md                   # Project documentation
+
 📅 Project Timeline
-Oct 2025 – Building Phase
 
-Core features implemented
+Phase: Building (October 2025)
+Status: Core features implemented
 
-Backend APIs for scholarships, colleges, YouTube proxy
+✅ Completed
 
-Frontend UI, quiz engine, and search components
+Backend APIs (Scholarship, College, YouTube Proxy)
 
-🎯 Purpose
-To simplify and personalize the stream-selection and college-search process by combining psychometric insights, curated resources, and local data into one cohesive, student-friendly web experience.
+Frontend UI, Quiz Engine, Search Components
 
-🧾 Future Enhancements
+🧩 In Progress
 
-College Comparison Tool 
+Personalized Dashboards (10th, 12th, Parent)
 
-Cutoff Predictor (in Advance)
+Authentication & JWT Authorization
 
-Admissions Alert for localites
+Database Migration (MongoDB/Postgres)
 
-Counselling Info
+AI Chatbot Integration
 
-AI chatbot for instant academic & career guidance
+💡 Future Enhancements
 
-Database backend (MongoDB/Postgres) for dynamic data
+🧮 College Comparison Tool
 
-Authentication & authorization with JWT
+📊 Cutoff Predictor
 
-🤝 Contributing
-Contributions are welcome!
+🔔 Admission Alerts
 
-Developer: Yug Yadav
-LinkedIn: linkedin.com/in/yugyadav
+🧭 Counselling Info Portal
+
+🤖 AI Career Chatbot
+
+🗄️ Database Backend (MongoDB/PostgreSQL)
+
+and many more..
+
+👨‍💻 Developer
+
+Yug Yadav
+
+🔗 LinkedIn-https://www.linkedin.com/in/yug-yadav-b27366248/
