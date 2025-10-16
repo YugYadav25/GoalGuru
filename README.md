@@ -118,6 +118,6 @@ AI Chatbot Integration
 
 …and many more 🚀
 
-👨‍💻 Developer
+👨‍💻 Developer<br>
 Yug Yadav
-🔗 LinkedIn
+
