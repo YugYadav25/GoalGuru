@@ -6,15 +6,18 @@ let timelineData = [];
 let faqData = [];
 
 // Initialize parent dashboard
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeParentDashboard();
     loadTimelineData();
     loadFAQData();
+    fetchQuote();
+    fetchInsights();
+    renderFAQs(false); // Show top 3 initially
 });
 
 function initializeParentDashboard() {
     // Load saved child class
-    const savedClass =  GoalGuru.getFromStorage('child-class');
+    const savedClass = GoalGuru.getFromStorage('child-class');
     if (savedClass) {
         childClass = savedClass;
         document.getElementById('childClass').value = savedClass;
@@ -22,7 +25,7 @@ function initializeParentDashboard() {
     }
 
     // Track parent dashboard visit
-     GoalGuru.trackEvent('dashboard', 'visited', 'parent');
+    GoalGuru.trackEvent('dashboard', 'visited', 'parent');
 }
 
 // Update parent dashboard based on child's class
@@ -30,11 +33,11 @@ function updateParentDashboard() {
     childClass = document.getElementById('childClass').value;
 
     if (childClass) {
-         GoalGuru.saveToStorage('child-class', childClass);
+        GoalGuru.saveToStorage('child-class', childClass);
         updateTimelineForClass();
 
         // Track child class selection
-         GoalGuru.trackEvent('parent', 'child-class-selected', childClass);
+        GoalGuru.trackEvent('parent', 'child-class-selected', childClass);
     }
 }
 
@@ -166,15 +169,15 @@ function updateTimelineForClass() {
 
 // View full timeline
 function viewFullTimeline() {
-     GoalGuru.trackEvent('parent', 'view-full-timeline', childClass);
-     GoalGuru.showNotification('Opening detailed academic calendar...', 'info');
+    GoalGuru.trackEvent('parent', 'view-full-timeline', childClass);
+    GoalGuru.showNotification('Opening detailed academic calendar...', 'info');
 
     // In a real app, this would open a comprehensive timeline page
 }
 
 // Get support guide
 function getSupportGuide() {
-     GoalGuru.trackEvent('parent', 'support-guide-requested');
+    GoalGuru.trackEvent('parent', 'support-guide-requested');
 
     const guide = `
         PARENTAL SUPPORT GUIDE:
@@ -198,12 +201,12 @@ function getSupportGuide() {
         • Seek professional help if needed
     `;
 
-     GoalGuru.showNotification(guide, 'info');
+    GoalGuru.showNotification(guide, 'info');
 }
 
 // Open cost calculator
 function openCostCalculator() {
-     GoalGuru.trackEvent('parent', 'cost-calculator-opened');
+    GoalGuru.trackEvent('parent', 'cost-calculator-opened');
 
     const costInfo = `
         EDUCATION COST CALCULATOR
@@ -224,12 +227,12 @@ function openCostCalculator() {
         *Costs include tuition, hostel, and other expenses
     `;
 
-     GoalGuru.showNotification(costInfo, 'info');
+    GoalGuru.showNotification(costInfo, 'info');
 }
 
 // View detailed ROI analysis
 function viewDetailedROI() {
-     GoalGuru.trackEvent('parent', 'roi-analysis-viewed');
+    GoalGuru.trackEvent('parent', 'roi-analysis-viewed');
 
     const roiInfo = `
         CAREER ROI ANALYSIS
@@ -250,12 +253,12 @@ function viewDetailedROI() {
         • 5-year ROI: 250-400%
     `;
 
-     GoalGuru.showNotification(roiInfo, 'info');
+    GoalGuru.showNotification(roiInfo, 'info');
 }
 
 // Find scholarships
 function findScholarships() {
-     GoalGuru.trackEvent('parent', 'scholarship-finder-opened');
+    GoalGuru.trackEvent('parent', 'scholarship-finder-opened');
 
     const scholarshipInfo = `
         SCHOLARSHIP OPPORTUNITIES:
@@ -276,45 +279,191 @@ function findScholarships() {
         • Girl child incentives: Various amounts
     `;
 
-     GoalGuru.showNotification(scholarshipInfo, 'info');
+    GoalGuru.showNotification(scholarshipInfo, 'info');
 }
 
 // Toggle FAQ answers
 function toggleFAQ(faqId) {
     const faqAnswer = document.getElementById(`faq-${faqId}`);
     const faqQuestion = faqAnswer.previousElementSibling;
+    const icon = faqQuestion.querySelector('i');
 
     if (faqAnswer.classList.contains('active')) {
         faqAnswer.classList.remove('active');
         faqAnswer.style.display = 'none';
-        faqQuestion.querySelector('i').style.transform = 'rotate(0deg)';
+        icon.style.transform = 'rotate(0deg)';
     } else {
         // Close all other FAQs
         document.querySelectorAll('.faq-answer').forEach(answer => {
             answer.classList.remove('active');
             answer.style.display = 'none';
         });
-        document.querySelectorAll('.faq-question i').forEach(icon => {
-            icon.style.transform = 'rotate(0deg)';
+        document.querySelectorAll('.faq-question i').forEach(ic => {
+            ic.style.transform = 'rotate(0deg)';
         });
 
         // Open selected FAQ
         faqAnswer.classList.add('active');
         faqAnswer.style.display = 'block';
-        faqQuestion.querySelector('i').style.transform = 'rotate(180deg)';
+        icon.style.transform = 'rotate(180deg)';
 
         // Track FAQ interaction
         const faq = faqData.find(f => f.id === faqId);
         if (faq) {
-             GoalGuru.trackEvent('parent', 'faq-viewed', faq.question.substring(0, 50));
+            GoalGuru.trackEvent('parent', 'faq-viewed', faq.question.substring(0, 50));
         }
     }
 }
 
-// View all FAQs
+// Render FAQs
+function renderFAQs(showAll) {
+    const faqList = document.getElementById('faq-list');
+    if (!faqList) return;
+
+    faqList.innerHTML = '';
+
+    const faqsToShow = showAll ? faqData : faqData.slice(0, 3);
+
+    faqsToShow.forEach(faq => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.onclick = () => toggleFAQ(faq.id);
+
+        faqItem.innerHTML = `
+            <div class="faq-question">
+                <span>${faq.question}</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer" id="faq-${faq.id}">
+                ${faq.answer}
+            </div>
+        `;
+        faqList.appendChild(faqItem);
+    });
+
+    const viewAllBtn = document.getElementById('view-all-faqs-btn');
+    if (viewAllBtn) {
+        viewAllBtn.style.display = showAll ? 'none' : 'block';
+    }
+}
+
+// View all FAQs (Opens Modal)
 function viewAllFAQs() {
-     GoalGuru.trackEvent('parent', 'all-faqs-viewed');
-     GoalGuru.showNotification('Opening comprehensive FAQ section...', 'info');
+    GoalGuru.trackEvent('parent', 'all-faqs-viewed');
+
+    const modal = document.getElementById('about-faq-modal');
+    const modalFaqList = document.getElementById('modal-faq-list');
+
+    if (modal && modalFaqList) {
+        // Render FAQs into the modal
+        modalFaqList.innerHTML = '';
+        faqData.forEach(faq => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+            // Note: We use a different toggle function or simple expansion for modal FAQs
+            // For simplicity, let's make them expandable like the main ones, but unique IDs
+            const uniqueId = `modal-faq-${faq.id}`;
+
+            faqItem.innerHTML = `
+                <div class="faq-question" onclick="toggleModalFAQ('${uniqueId}')">
+                    <span>${faq.question}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" id="${uniqueId}">
+                    ${faq.answer}
+                </div>
+            `;
+            modalFaqList.appendChild(faqItem);
+        });
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+// Close Modal
+function closeModal() {
+    const modal = document.getElementById('about-faq-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Toggle Modal FAQ
+function toggleModalFAQ(elementId) {
+    const answer = document.getElementById(elementId);
+    const question = answer.previousElementSibling;
+    const icon = question.querySelector('i');
+
+    if (answer.classList.contains('active')) {
+        answer.classList.remove('active');
+        answer.style.maxHeight = null;
+        icon.style.transform = 'rotate(0deg)';
+    } else {
+        // Optional: Close others in modal? Let's keep them independent for better UX in modal
+        answer.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.style.transform = 'rotate(180deg)';
+    }
+}
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+    const modal = document.getElementById('about-faq-modal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+// Fetch Quote of the Day
+async function fetchQuote() {
+    try {
+        const response = await fetch('https://dummyjson.com/quotes/random');
+        const data = await response.json();
+        const quoteContainer = document.getElementById('daily-quote-container');
+        if (quoteContainer && data.quote) {
+            quoteContainer.innerHTML = `
+                <p>"${data.quote}"</p>
+                <p style="font-size: 0.9em; margin-top: 5px;">- ${data.author}</p>
+            `;
+        }
+    } catch (error) {
+        console.error('Error fetching quote:', error);
+    }
+}
+
+// Fetch Insights (simulated with posts)
+async function fetchInsights() {
+    try {
+        const response = await fetch('https://dummyjson.com/posts?limit=3');
+        const data = await response.json();
+        const insightsContainer = document.getElementById('insights-container');
+
+        if (insightsContainer && data.posts) {
+            insightsContainer.innerHTML = '';
+            data.posts.forEach(post => {
+                const insightItem = document.createElement('div');
+                insightItem.className = 'insight-item';
+                insightItem.style.marginBottom = '15px';
+                insightItem.style.padding = '10px';
+                insightItem.style.background = '#f9f9f9';
+                insightItem.style.borderRadius = '8px';
+
+                insightItem.innerHTML = `
+                    <h5 style="margin-bottom: 5px; color: #2c3e50;">${post.title}</h5>
+                    <p style="font-size: 0.9em; color: #666;">${post.body.substring(0, 100)}...</p>
+                `;
+                insightsContainer.appendChild(insightItem);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching insights:', error);
+        const insightsContainer = document.getElementById('insights-container');
+        if (insightsContainer) {
+            insightsContainer.innerHTML = '<p>Unable to load insights at the moment.</p>';
+        }
+    }
 }
 
 // Communication tips and resources
@@ -368,21 +517,21 @@ function getDailyTip() {
 
 // Show daily tip if parent visits dashboard
 function showDailyTip() {
-    const lastTipDate =  GoalGuru.getFromStorage('last-tip-date');
+    const lastTipDate = GoalGuru.getFromStorage('last-tip-date');
     const today = new Date().toDateString();
 
     if (lastTipDate !== today) {
         const tip = getDailyTip();
         setTimeout(() => {
-             GoalGuru.showNotification(`Daily Tip: ${tip}`, 'info');
+            GoalGuru.showNotification(`Daily Tip: ${tip}`, 'info');
         }, 2000);
 
-         GoalGuru.saveToStorage('last-tip-date', today);
+        GoalGuru.saveToStorage('last-tip-date', today);
     }
 }
 
 // Initialize daily tip after DOM loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     setTimeout(showDailyTip, 3000); // Show after 3 seconds
 });
 

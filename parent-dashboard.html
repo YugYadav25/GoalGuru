@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parent Dashboard -  GoalGuru</title>
+    <title>Parent Dashboard - GoalGuru</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <link rel="shortcut icon" href="assets/goal_guru.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="assets/goal_guru.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -29,6 +33,10 @@
             <div class="welcome-message">
                 <h1>Supporting Your Child's Journey</h1>
                 <p>Essential tools and guidance for parents</p>
+                <div id="daily-quote-container" class="daily-quote"
+                    style="margin-top: 15px; font-style: italic; color: #555;">
+                    <!-- Quote will be loaded here -->
+                </div>
             </div>
             <div class="child-info">
                 <label for="childClass">Child's Current Class:</label>
@@ -205,6 +213,19 @@
                     </div>
                 </div>
 
+                <!-- Latest Insights (Dynamic) -->
+                <div class="dashboard-card" id="insights-card">
+                    <div class="card-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Latest Education Insights</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="insights-container" class="insights-list">
+                            <p>Loading insights...</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Common Questions -->
                 <div class="dashboard-card">
                     <div class="card-header">
@@ -212,36 +233,10 @@
                         <h3>Frequently Asked Questions</h3>
                     </div>
                     <div class="card-content">
-                        <div class="faq-list">
-                            <div class="faq-item" onclick="toggleFAQ(1)">
-                                <div class="faq-question">
-                                    <span>How do I know if my child chose the right stream?</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer" id="faq-1">
-                                    Look for signs of genuine interest, consistent performance, and enthusiasm in related subjects. Our stream assessment can provide objective insights.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(2)">
-                                <div class="faq-question">
-                                    <span>When should we start college planning?</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer" id="faq-2">
-                                    Ideally, start in Class 11. This gives enough time to research options, prepare for entrance exams, and make informed decisions.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(3)">
-                                <div class="faq-question">
-                                    <span>How important are entrance exam coaching classes?</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer" id="faq-3">
-                                    While helpful, they're not mandatory. Self-study with good resources can be equally effective. Assess your child's learning style and needs.
-                                </div>
-                            </div>
+                        <div class="faq-list" id="faq-list">
+                            <!-- FAQs will be loaded dynamically -->
                         </div>
-                        <button class="btn btn-outline" onclick="viewAllFAQs()">
+                        <button class="btn btn-outline" id="view-all-faqs-btn" onclick="viewAllFAQs()">
                             View All FAQs
                         </button>
                     </div>
@@ -308,5 +303,36 @@
 
     <script src="../js/script.js"></script>
     <script src="../js/parent-dashboard.js"></script>
+
+    <!-- About & FAQ Modal -->
+    <div id="about-faq-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>About GoalGuru & FAQs</h2>
+            </div>
+            <div class="modal-body">
+                <section class="about-section">
+                    <h3>About GoalGuru</h3>
+                    <p>GoalGuru is your dedicated partner in navigating the complex landscape of education and career
+                        planning. We empower parents and students with data-driven insights, expert guidance, and
+                        comprehensive resources to make informed decisions about their future.</p>
+                    <ul style="margin-top: 10px; list-style-type: disc; padding-left: 20px;">
+                        <li>Personalized Career Roadmaps</li>
+                        <li>Expert Counseling & Support</li>
+                        <li>Comprehensive Resource Hub</li>
+                    </ul>
+                </section>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <section class="faq-section-full">
+                    <h3>Frequently Asked Questions</h3>
+                    <div id="modal-faq-list" class="faq-list">
+                        <!-- FAQs will be loaded here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
