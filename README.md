@@ -1,69 +1,123 @@
-# 🎯 GoalGuru
-<img width="1335" height="625" alt="image" src="https://github.com/user-attachments/assets/ce235eda-0c65-4d87-8031-e4e23d0dfe33" />
-<img width="1336" height="600" alt="image" src="https://github.com/user-attachments/assets/0cf20a91-b7e7-4e04-9292-ca4a50ccad02" />
-<img width="1338" height="627" alt="image" src="https://github.com/user-attachments/assets/fb567832-d144-4ed9-8132-aa24757d38a9" />
-<img width="1336" height="599" alt="image" src="https://github.com/user-attachments/assets/96488515-70b1-41ca-bc36-2dfa17b70eb6" />
+🎯 GoalGuru — Smart Academic & Career Companion
+An interactive platform empowering Class 10th and 12th students (and their parents) to make informed decisions about streams, careers, scholarships, and colleges — all in one place.
+
+<img width="1336" height="632" alt="image" src="https://github.com/user-attachments/assets/b401e81c-6f9b-4a01-9aa3-b42758a92796" />
 
 
 
+🧠 Overview
+GoalGuru simplifies the student journey through:
+
+🎓 AI-Powered Stream Recommendation – Psychometric quiz to suggest ideal streams based on interests, aptitude, and personality.
+
+💰 Local Scholarship Finder (All States) – Discover state-wise government and private scholarships using a Node.js & Express backend.
+
+🏫 College Finder – Filter colleges by stream, location, rating, and fee range using a fast, searchable JSON database.
+
+▶️ YouTube Resource Integration – Search for study resources via YouTube Data API v3, secured through backend proxy.
+
+🧭 Career & Subject Mapping – Explore subject relevance, career pathways, and get personalized recommendations.
+
+<img width="1340" height="626" alt="image" src="https://github.com/user-attachments/assets/79392fce-53a9-44ff-ad4e-eedfbe4e518b" />
+
+<img width="1343" height="626" alt="image" src="https://github.com/user-attachments/assets/35abbc72-ea2b-4b22-ae2d-6208a8d27418" />
+
+<img width="1351" height="626" alt="image" src="https://github.com/user-attachments/assets/3edce6f0-681c-4752-8278-b769dcce2172" />
 
 
 
-> **A Guidance Platform** helping 10th & 12th-grade students and parents make informed academic stream and career decisions.
+⚙️ Tech Stack
 
----
+Layer	Technologies
+```
+Frontend:	HTML, CSS, JavaScript
+Backend:	Node.js, Express.js
+Data Storage:	JSON (Colleges, Scholarships)
+APIs:	YouTube Data API v3 (proxied via backend)
+Environment:	dotenv for secret key management
+Version Control:	Git, GitHub
+```
+🚀 Key Features<br><br>
+✅ Stream Selection Quiz – Interactive quiz with typewriter effect and real-time scoring.
 
-### 🧠 Overview
-GoalGuru is an interactive web platform designed to guide students through stream selection using **AI-based assessments**, **YouTube resource integration**, and **personalized recommendations**.  
-It helps users explore career paths, understand subject relevance, and access curated educational resources.
+✅ Scholarship Finder – State filters, keyword search, and dynamic scholarship cards.
 
----
+✅ College Finder – Stream and budget filters with instant search and responsive design.
 
-### ⚙️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript  
-- **API:** YouTube Data API v3  
-- **Version Control:** Git & GitHub  
+✅ YouTube Search Modal – Watch study tutorials directly from the Resource Hub.
 
----
+✅ Authentication UI (WIP) – Signup/Login modals with session-based user states.
 
-### 🚀 Features
-- 💡 **AI-powered stream recommendation system** (Science, Commerce, Arts)  
-- 🧩 **Interactive quizzes** analyzing interests, aptitude & personality  
-- 🎓 **Career exploration modules** & subject-to-career mapping  
-- 🔍 **Real-time YouTube video suggestions** via YouTube Data API v3  
-- 🧭 **College & exam guidance** tailored to user preferences   
-- 🌐 **Responsive UI** for students, parents, and educators  
+✅ Notification System – Smart pop-ups for success, error, and information.
 
----
+✅ Analytics Tracking – Client-side event logging for insights.
 
-### 📅 Project Timeline
-**October 2025 – Building Phase (Ongoing Development)**
+✅ Responsive Design – Optimized for mobile, tablet, and desktop.
 
----
+🧩 Project Structure
 
-### 🎯 Purpose
-GoalGuru aims to simplify the **stream-selection process** for students by combining **psychometric analysis, career data**, and **curated learning resources** into a single, user-friendly platform.
+```
+GOALGURU/
+│
+├── backend/
+│   ├── app.js                  # Express app with API routes
+│   ├── server.js               # Server bootstrap
+│   ├── data.json               # Scholarship data
+│   ├── data-colleges.json      # College data
+│   ├── .env                    # Environment variables (excluded from commits)
+│   └── package.json            # Backend dependencies & scripts
+│
+├── css/
+│   └── style.css               # Global and component styles
+│
+├── js/
+│   ├── script.js               # Main UI logic, quiz, notifications
+│   ├── resource-hub.js         # Scholarship, college, YouTube logic
+│   └── other scripts…          # Dashboard & quiz logic
+│
+├── index.html                  # Landing page with typewriter effect
+├── role-selection.html         # Role selection screen
+├── resource-hub.html           # Resource Hub: quizzes, finders, videos
+├── college-finder.html         # Dedicated College Finder page
+├── 10th-dashboard.html         # Dashboard (Class 10)
+├── 12th-dashboard.html         # Dashboard (Class 12)
+├── parent-dashboard.html       # Dashboard (Parent)
+└── README.md                   # Project documentation
+```
+📅 Project Timeline
+Phase: Building (October 2025)
+Status: Core features implemented
 
----
+✅ Completed
 
-### 🧾 Future Enhancements
-- Integration of a **student dashboard backend** with progress analytics  
-- **AI chatbot** for instant academic & career guidance  
-- Personalized **college and entrance exam recommendations**
+Backend APIs (Scholarship, College, YouTube Proxy)
 
----
+Frontend UI, Quiz Engine, Search Components
 
-### 🤝 Contributing
-Contributions are welcome!  
-If you’d like to improve this project, fork the repo and submit a pull request.  
+🧩 In Progress
+Personalized Dashboards (10th, 12th, Parent)
 
----
+Authentication & JWT Authorization
 
-### 📫 Contact
-**Developer:** Yug Yadav  
-**LinkedIn:** [linkedin.com/in/yugyadav](https://www.linkedin.com/in/yug-yadav-b27366248/)  
+Database Migration (MongoDB/PostgreSQL)
 
+AI Chatbot Integration
 
----
+💡 Future Enhancements
+🧮 College Comparison Tool
 
-⭐ *If you like this project, don’t forget to star the repository!*
+📊 Cutoff Predictor
+
+🔔 Admission Alerts
+
+🧭 Counselling Info Portal
+
+🤖 AI Career Chatbot
+
+🗄️ Database Backend (MongoDB/PostgreSQL)
+
+…and many more 🚀
+
+👨‍💻 Developer<br>
+Yug Yadav
+
